@@ -1,9 +1,14 @@
 import 'list.style.css'
 
+// components
+import UserInfo from '../userInfo/UserInfo';
+import ListChat from '../listChat/ListChat';
+
 const List = () => {
   return (
     <div>
-      <h1>List</h1>
+      <UserInfo />
+      <ListChat />
     </div>
   )
 }
