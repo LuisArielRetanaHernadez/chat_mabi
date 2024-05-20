@@ -1,3 +1,5 @@
+import 'list.style.css'
+
 const List = () => {
   return (
     <div>
