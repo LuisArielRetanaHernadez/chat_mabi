@@ -1,3 +1,5 @@
+import './chat.style.css'
+
 const Chat = () => {
   return (
     <div>
