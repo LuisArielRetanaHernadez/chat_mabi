@@ -1,3 +1,5 @@
+import 'userInfo.style.css'
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const UserInfo = () => {
