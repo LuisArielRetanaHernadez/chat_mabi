@@ -11,9 +11,15 @@ const UserInfo = () => {
         <h2>Mabi Lina</h2>
       </div>
       <div className="icons">
-        <FontAwesomeIcon icon={faVideo} />
-        <FontAwesomeIcon icon={faPenToSquare} />
-        <FontAwesomeIcon icon={faEllipsis} />
+        <span className='icon'>
+          <FontAwesomeIcon className='icon' icon={faVideo} />
+        </span>
+        <span className='icon'>
+          <FontAwesomeIcon icon={faPenToSquare} />
+        </span>
+        <span className='icon'>
+          <FontAwesomeIcon icon={faEllipsis} />
+        </span>
       </div>
     </div>
   )

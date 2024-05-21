@@ -2,7 +2,7 @@
   padding: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   .user {
     display: flex;
@@ -21,4 +21,10 @@
     display: flex;
     gap: 20px;
   }
+}
+
+.icon {
+  font-size: 20px;
+  cursor: pointer;
+  color: gray;
 }
