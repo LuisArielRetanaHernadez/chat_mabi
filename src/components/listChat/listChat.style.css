@@ -1,4 +1,6 @@
 .chatList {
+  flex: 1;
+  overflow-y: auto;
   .search {
     padding: 20px;
     display: flex;
@@ -19,6 +21,7 @@
       color: white;
       border: 0;
       background: transparent;
+      flex: 1;
       outline: none;
     }
   }
@@ -31,6 +34,7 @@
   }
 
   .item {
+    padding: 20px;
     border-bottom: 1px solid gray;
     display: flex;
     align-items: center;
