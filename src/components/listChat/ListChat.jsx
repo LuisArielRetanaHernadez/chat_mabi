@@ -9,10 +9,15 @@ const ListChat = () => {
     <div className="chatList">
       <div className="search">
         <div className="searchBar">
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
+          <span className="icon">
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </span>
           <input type="text" />
         </div>
-        <FontAwesomeIcon icon={faCirclePlus} />
+        <span className="icon">
+          <FontAwesomeIcon icon={faCirclePlus} />
+        </span>
+
       </div>
     </div>
   )
