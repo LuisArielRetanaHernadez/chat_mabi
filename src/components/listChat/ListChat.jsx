@@ -14,7 +14,7 @@ const ListChat = () => {
           </span>
           <input type="text" />
         </div>
-        <span className="icon">
+        <span className="icon add">
           <FontAwesomeIcon icon={faCirclePlus} />
         </span>
 
