@@ -1,3 +1,4 @@
+import { faEllipsis, faPenToSquare, faVideo } from '@fortawesome/free-solid-svg-icons'
 import './userInfo.style.css'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -10,9 +11,9 @@ const UserInfo = () => {
         <h2>Mabi Lina</h2>
       </div>
       <div className="icons">
-        <FontAwesomeIcon icon="fa-solid fa-ellipsis" />
-        <FontAwesomeIcon icon="fa-solid fa-video" />
-        <FontAwesomeIcon icon="fa-solid fa-pen-to-square" />
+        <FontAwesomeIcon icon={faVideo} />
+        <FontAwesomeIcon icon={faPenToSquare} />
+        <FontAwesomeIcon icon={faEllipsis} />
       </div>
     </div>
   )
