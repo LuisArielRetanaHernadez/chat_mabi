@@ -2,7 +2,7 @@ import './detail.style.css'
 
 const Detail = () => {
   return (
-    <div className='detial'>
+    <div className='detail'>
       <h1>Detail</h1>
     </div>
   )
