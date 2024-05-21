@@ -7,7 +7,7 @@
   .user {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
 
     img {
       width: 50px;
@@ -21,6 +21,10 @@
     display: flex;
     gap: 20px;
   }
+}
+
+.user__name {
+  font-size: 20px;
 }
 
 .icon {
