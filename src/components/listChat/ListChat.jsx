@@ -2,6 +2,8 @@
 import { faCirclePlus, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
+import "./listChat.style.css"
+
 const ListChat = () => {
   return (
     <div className="chatList">
