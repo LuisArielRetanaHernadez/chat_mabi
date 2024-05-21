@@ -1,4 +1,4 @@
-import 'userInfo.style.css'
+import './userInfo.style.css'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 

@@ -1,4 +1,4 @@
-import 'list.style.css'
+import './list.style.css'
 
 // components
 import UserInfo from '../userInfo/UserInfo';
