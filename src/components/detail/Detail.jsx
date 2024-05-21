@@ -1,4 +1,4 @@
-import 'detail.style.css'
+import './detail.style.css'
 
 const Detail = () => {
   return (
