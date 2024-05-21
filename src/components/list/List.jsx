@@ -6,7 +6,7 @@ import ListChat from '../listChat/ListChat';
 
 const List = () => {
   return (
-    <div>
+    <div className='list'>
       <UserInfo />
       <ListChat />
     </div>
