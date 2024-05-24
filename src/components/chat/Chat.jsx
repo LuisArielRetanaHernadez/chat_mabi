@@ -8,6 +8,7 @@ import { useState } from 'react'
 
 const Chat = () => {
   const [showEmojis, setShowEmojis] = useState(false)
+  const [message, setMessage] = useState("")
   return (
     <div className='chat'>
       <div className='top'>
@@ -44,12 +45,12 @@ const Chat = () => {
             <FontAwesomeIcon icon={faMicrophone} />
           </span>
         </div>
-        <input type='text' placeholder='send message...' />
+        <input type='text' onChange={e => setMessage(e.target.value)} value={message} placeholder='send message...' />
         <div className='emoji'>
           <span className='icon icon--emoji' onClick={() => setShowEmojis(prev => !prev)}>
             <FontAwesomeIcon icon={faFaceSmileWink} />
           </span>
-          <EmojiPicker open={showEmojis} />
+          <EmojiPicker open={showEmojis} onEmojiClick={emoji => setMessage(prev => prev + emoji.emoji)} />
         </div>
         <button className='sendButton'>Send</button>
       </div>
