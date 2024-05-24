@@ -2,6 +2,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './chat.style.css'
 import { faCircleInfo, faFaceSmileWink, faFileImage, faMicrophone, faMobileScreenButton, faVideo } from '@fortawesome/free-solid-svg-icons'
 
+// emoji picker react
+import EmojiPicker from 'emoji-picker-react'
+
 const Chat = () => {
   return (
     <div className='chat'>
@@ -44,6 +47,7 @@ const Chat = () => {
           <span className='icon icon--emoji'>
             <FontAwesomeIcon icon={faFaceSmileWink} />
           </span>
+          <EmojiPicker />
         </div>
         <button className='sendButton'>Send</button>
       </div>
