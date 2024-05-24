@@ -29,7 +29,7 @@ const Chat = () => {
       <div className='center'></div>
       <div className='bottom'>
         <div className='icons'>
-          <span>
+          <span className='icon'>
             <FontAwesomeIcon icon={faFileImage} />
           </span>
           <span className='icon'>
