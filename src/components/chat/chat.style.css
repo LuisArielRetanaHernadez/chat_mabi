@@ -47,4 +47,10 @@
       gap: 20px;
     }
   }
+
+  .bottom {
+    .icon--emoji {
+      color: yellow;
+    }
+  }
 }

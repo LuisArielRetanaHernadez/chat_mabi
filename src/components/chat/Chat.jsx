@@ -33,7 +33,7 @@ const Chat = () => {
         </div>
         <input type='text' placeholder='send message...' />
         <div className='emoji'>
-          <span className='icon'>
+          <span className='icon icon--emoji'>
             <FontAwesomeIcon icon={faFaceSmileWink} />
           </span>
         </div>
