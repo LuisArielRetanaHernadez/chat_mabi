@@ -25,6 +25,20 @@ const ListChat = () => {
           <p>Hello</p>
         </div>
       </div>
+      <div className="item">
+        <img src="https://images.pexels.com/photos/1585325/pexels-photo-1585325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+        <div>
+          <span>Mabi Bella</span>
+          <p>Hello</p>
+        </div>
+      </div>
+      <div className="item">
+        <img src="https://images.pexels.com/photos/1585325/pexels-photo-1585325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+        <div>
+          <span>Mabi Bella</span>
+          <p>Hello</p>
+        </div>
+      </div>
     </div>
   )
 }
