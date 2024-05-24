@@ -14,9 +14,16 @@ const Chat = () => {
           </div>
         </div>
         <div className='icons'>
-          <FontAwesomeIcon icon={faMobileScreenButton} />
-          <FontAwesomeIcon icon={faVideo} />
-          <FontAwesomeIcon icon={faCircleInfo} />
+          <span className='icon'>
+            <FontAwesomeIcon icon={faMobileScreenButton} />
+          </span>
+          <span className='icon'>
+            <FontAwesomeIcon icon={faVideo} />
+          </span>
+          <span className='icon'>
+            <FontAwesomeIcon icon={faCircleInfo} />
+          </span>
+
         </div>
       </div>
       <div className='center'></div>
