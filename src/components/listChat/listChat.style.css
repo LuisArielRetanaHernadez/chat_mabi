@@ -47,5 +47,20 @@
       border-radius: 50%;
       object-fit: cover;
     }
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      span {
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 300;
+      }
+    }
   }
 }
