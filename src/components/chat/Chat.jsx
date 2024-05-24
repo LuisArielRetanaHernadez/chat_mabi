@@ -4,8 +4,10 @@ import { faCircleInfo, faFaceSmileWink, faFileImage, faMicrophone, faMobileScree
 
 // emoji picker react
 import EmojiPicker from 'emoji-picker-react'
+import { useState } from 'react'
 
 const Chat = () => {
+  const [showEmojis, setShowEmojis] = useState(false)
   return (
     <div className='chat'>
       <div className='top'>
@@ -44,10 +46,10 @@ const Chat = () => {
         </div>
         <input type='text' placeholder='send message...' />
         <div className='emoji'>
-          <span className='icon icon--emoji'>
+          <span className='icon icon--emoji' onClick={() => setShowEmojis(prev => !prev)}>
             <FontAwesomeIcon icon={faFaceSmileWink} />
           </span>
-          <EmojiPicker />
+          <EmojiPicker open={showEmojis} />
         </div>
         <button className='sendButton'>Send</button>
       </div>
