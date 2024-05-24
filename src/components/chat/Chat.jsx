@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './chat.style.css'
-import { faCircleInfo, faFaceSmileWink, faMobileScreenButton, faVideo } from '@fortawesome/free-solid-svg-icons'
+import { faCircleInfo, faFaceSmileWink, faFileImage, faMicrophone, faMobileScreenButton, faVideo } from '@fortawesome/free-solid-svg-icons'
 
 const Chat = () => {
   return (
@@ -29,7 +29,15 @@ const Chat = () => {
       <div className='center'></div>
       <div className='bottom'>
         <div className='icons'>
-
+          <span>
+            <FontAwesomeIcon icon={faFileImage} />
+          </span>
+          <span className='icon'>
+            <FontAwesomeIcon icon={faVideo} />
+          </span>
+          <span className='icon'>
+            <FontAwesomeIcon icon={faMicrophone} />
+          </span>
         </div>
         <input type='text' placeholder='send message...' />
         <div className='emoji'>
