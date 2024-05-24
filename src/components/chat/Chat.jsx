@@ -1,4 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './chat.style.css'
+import { faCircleInfo, faMobileScreenButton, faVideo } from '@fortawesome/free-solid-svg-icons'
 
 const Chat = () => {
   return (
@@ -9,7 +11,11 @@ const Chat = () => {
           <span>Ahmad</span>
           <p>lorem inpurt rtext inpurt rtext lorem inpurt rtext </p>
         </div>
-        <div className='icons'></div>
+        <div className='icons'>
+          <FontAwesomeIcon icon={faMobileScreenButton} />
+          <FontAwesomeIcon icon={faVideo} />
+          <FontAwesomeIcon icon={faCircleInfo} />
+        </div>
       </div>
       <div className='center'></div>
       <div className='bottom'></div>
