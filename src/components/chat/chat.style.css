@@ -62,5 +62,13 @@
     .icon--emoji {
       color: yellow;
     }
+
+    input {
+      flex: 1;
+      color: white;
+      border: none;
+      outline: none;
+      background: gray;
+    }
   }
 }
