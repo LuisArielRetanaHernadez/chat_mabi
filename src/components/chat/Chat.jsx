@@ -50,7 +50,9 @@ const Chat = () => {
           <span className='icon icon--emoji' onClick={() => setShowEmojis(prev => !prev)}>
             <FontAwesomeIcon icon={faFaceSmileWink} />
           </span>
-          <EmojiPicker open={showEmojis} onEmojiClick={emoji => setMessage(prev => prev + emoji.emoji)} />
+          <div className='picker'>
+            <EmojiPicker open={showEmojis} onEmojiClick={emoji => setMessage(prev => prev + emoji.emoji)} />
+          </div>
         </div>
         <button className='sendButton'>Send</button>
       </div>
