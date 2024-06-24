@@ -33,7 +33,7 @@ const Chat = () => {
         </div>
       </div>
       <div className='center'>
-        <div className='message'>
+        <div className='message own'>
           <figure className='message__avatar-content'>
             <img className='message__avatar-image'></img>
           </figure>
@@ -51,7 +51,7 @@ const Chat = () => {
             <span className='message__datetime'></span>
           </div>
         </div>
-        <div className='message'>
+        <div className='message own'>
           <figure className='message__avatar-content'>
             <img className='message__avatar-image'></img>
           </figure>
