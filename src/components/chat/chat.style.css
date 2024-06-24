@@ -58,6 +58,22 @@
     flex-direction: column;
     flex: 1;
     gap: 14px;
+
+    .message {
+      max-width: 70%;
+      display: flex;
+      gap: 20px;
+
+      &.own {
+        align-self: flex-end;
+      }
+
+      .message__text {
+        p {
+          background-color: #fff;
+        }
+      }
+    }
   }
   .bottom {
     margin-top: auto;
