@@ -82,13 +82,14 @@
         object-position: center center;
       }
 
-      .message__text {
+      .message__content {
         display: flex;
         flex-direction: column;
         flex: 1;
-        p {
-          background-color: #fff;
-        }
+      }
+
+      .message__text {
+        text-align: start;
       }
     }
   }
