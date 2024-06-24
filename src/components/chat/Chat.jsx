@@ -35,7 +35,7 @@ const Chat = () => {
       <div className='center'>
         <div className='message own'>
           <figure className='message__avatar-content'>
-            <img className='message__avatar-image'></img>
+            <img className='message__avatar-image' src='https://images.pexels.com/photos/1302436/pexels-photo-1302436.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
           </figure>
           <div className='message__content'>
             <p className='message__text'></p>
@@ -44,7 +44,7 @@ const Chat = () => {
         </div>
         <div className='message'>
           <figure className='message__avatar-content'>
-            <img className='message__avatar-image'></img>
+            <img className='message__avatar-image' src='https://images.pexels.com/photos/3901102/pexels-photo-3901102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
           </figure>
           <div className='message__content'>
             <p className='message__text'></p>
@@ -53,7 +53,7 @@ const Chat = () => {
         </div>
         <div className='message own'>
           <figure className='message__avatar-content'>
-            <img className='message__avatar-image'></img>
+            <img className='message__avatar-image' src='https://images.pexels.com/photos/1302436/pexels-photo-1302436.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
           </figure>
           <div className='message__content'>
             <p className='message__text'></p>
@@ -62,7 +62,7 @@ const Chat = () => {
         </div>
         <div className='message'>
           <figure className='message__avatar-content'>
-            <img className='message__avatar-image'></img>
+            <img className='message__avatar-image' src='https://images.pexels.com/photos/3901102/pexels-photo-3901102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
           </figure>
           <div className='message__content'>
             <p className='message__text'></p>
