@@ -74,6 +74,16 @@
       background: gray;
     }
 
+    .emoji {
+      position: relative;
+    }
+
+    .picker {
+      position: absolute;
+      left: 0;
+      bottom: 50px;
+    }
+
     .sendButton {
       color: white;
       padding: 10px 20px;
