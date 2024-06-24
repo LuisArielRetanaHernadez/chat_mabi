@@ -42,6 +42,33 @@ const Chat = () => {
             <span className='message__datetime'></span>
           </div>
         </div>
+        <div className='message'>
+          <figure className='message__avatar-content'>
+            <img className='message__avatar-image'></img>
+          </figure>
+          <div className='message__content'>
+            <p className='message__text'></p>
+            <span className='message__datetime'></span>
+          </div>
+        </div>
+        <div className='message'>
+          <figure className='message__avatar-content'>
+            <img className='message__avatar-image'></img>
+          </figure>
+          <div className='message__content'>
+            <p className='message__text'></p>
+            <span className='message__datetime'></span>
+          </div>
+        </div>
+        <div className='message'>
+          <figure className='message__avatar-content'>
+            <img className='message__avatar-image'></img>
+          </figure>
+          <div className='message__content'>
+            <p className='message__text'></p>
+            <span className='message__datetime'></span>
+          </div>
+        </div>
       </div>
       <div className='bottom'>
         <div className='icons'>
