@@ -38,7 +38,9 @@ const Chat = () => {
             <img className='message__avatar-image' src='https://images.pexels.com/photos/1302436/pexels-photo-1302436.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
           </figure>
           <div className='message__content'>
-            <p className='message__text'></p>
+            <p className='message__text'>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis interdum erat eget tincidunt. Aliquam eleifend turpis non ex pharetra porttitor. In laoreet ac diam eget pulvinar. Quisque vel iaculis sapien. Fusce pulvinar bibendum lectus ut efficitur.
+            </p>
             <span className='message__datetime'></span>
           </div>
         </div>
@@ -47,7 +49,9 @@ const Chat = () => {
             <img className='message__avatar-image' src='https://images.pexels.com/photos/3901102/pexels-photo-3901102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
           </figure>
           <div className='message__content'>
-            <p className='message__text'></p>
+            <p className='message__text'>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis interdum erat eget tincidunt. Aliquam eleifend turpis non ex pharetra porttitor. In laoreet ac diam eget pulvinar. Quisque vel iaculis sapien. Fusce pulvinar bibendum lectus ut efficitur.
+            </p>
             <span className='message__datetime'></span>
           </div>
         </div>
@@ -56,7 +60,9 @@ const Chat = () => {
             <img className='message__avatar-image' src='https://images.pexels.com/photos/1302436/pexels-photo-1302436.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
           </figure>
           <div className='message__content'>
-            <p className='message__text'></p>
+            <p className='message__text'>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis interdum erat eget tincidunt. Aliquam eleifend turpis non ex pharetra porttitor. In laoreet ac diam eget pulvinar. Quisque vel iaculis sapien. Fusce pulvinar bibendum lectus ut efficitur.
+            </p>
             <span className='message__datetime'></span>
           </div>
         </div>
@@ -65,7 +71,9 @@ const Chat = () => {
             <img className='message__avatar-image' src='https://images.pexels.com/photos/3901102/pexels-photo-3901102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
           </figure>
           <div className='message__content'>
-            <p className='message__text'></p>
+            <p className='message__text'>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis interdum erat eget tincidunt. Aliquam eleifend turpis non ex pharetra porttitor. In laoreet ac diam eget pulvinar. Quisque vel iaculis sapien. Fusce pulvinar bibendum lectus ut efficitur.
+            </p>
             <span className='message__datetime'></span>
           </div>
         </div>

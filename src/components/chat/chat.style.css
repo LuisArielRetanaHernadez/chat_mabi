@@ -83,6 +83,9 @@
       }
 
       .message__text {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
         p {
           background-color: #fff;
         }
