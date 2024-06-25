@@ -41,6 +41,16 @@
         object-fit: cover;
         opacity: 0.6;
       }
+
+      button {
+        width: 100%;
+        padding: 20px;
+        border: none;
+        color: #ffffff;
+        background-color: aqua;
+        border-radius: 5px;
+        cursor: pointer;
+      }
     }
   }
 }
