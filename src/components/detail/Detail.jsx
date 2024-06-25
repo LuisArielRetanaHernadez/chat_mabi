@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './detail.style.css'
-import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons'
+import { faFileArrowDown, faGears, faInfo, faShare, faShareFromSquare } from '@fortawesome/free-solid-svg-icons'
 
 const Detail = () => {
   return (
@@ -14,25 +14,19 @@ const Detail = () => {
         <div className="option">
           <div className="title">
             <span>Chat Settings</span>
-            <img src="./arrowUp.png" alt="" />
-          </div>
-        </div>
-        <div className="option">
-          <div className="title">
-            <span>Chat Settings</span>
-            <img src="./arrowUp.png" alt="" />
+            <FontAwesomeIcon icon={faGears} className='icon' />
           </div>
         </div>
         <div className="option">
           <div className="title">
             <span>Privacy & help</span>
-            <img src="./arrowUp.png" alt="" />
+            <FontAwesomeIcon icon={faInfo} className='icon' />
           </div>
         </div>
         <div className="option">
           <div className="title">
             <span>Shared photos</span>
-            <img src="./arrowDown.png" alt="" />
+            <FontAwesomeIcon icon={faShareFromSquare} className='icon' />
           </div>
           <div className="photos">
             <div className="photoItem">
@@ -88,7 +82,7 @@ const Detail = () => {
         <div className="option">
           <div className="title">
             <span>Shared Files</span>
-            <img src="./arrowUp.png" alt="" />
+            <FontAwesomeIcon icon={faShare} className='icon' />
           </div>
         </div>
         <button >
