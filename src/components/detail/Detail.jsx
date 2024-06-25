@@ -1,4 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './detail.style.css'
+import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons'
 
 const Detail = () => {
   return (
@@ -25,6 +27,15 @@ const Detail = () => {
           <div className='detail__title'>
             <span>Shered photos</span>
             <img alt='' />
+          </div>
+          <div className='photos'>
+            <div className='photos__item'>
+              <img alt='' />
+              <span>photo_11-11-1.png</span>
+            </div>
+            <span className='photo__icon-download'>
+              <FontAwesomeIcon icon={faFileArrowDown} />
+            </span>
           </div>
         </div>
         <div className='detail__option'>
