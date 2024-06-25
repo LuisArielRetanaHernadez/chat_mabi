@@ -40,8 +40,8 @@ const Login = () => {
       <div className='item'>
         <h2>Welcome back</h2>
         <form>
-          <input type="text" placeholder='Username' />
-          <input type="password" placeholder='Password' />
+          <input type="text" placeholder='Username' name='username' />
+          <input type="password" placeholder='Password' name='email' />
           <button>Sign In</button>
         </form>
       </div>
