@@ -40,10 +40,11 @@ const Detail = () => {
         </div>
         <div className='detail__option'>
           <div className='detail__title'>
-            <span>Chat Setting</span>
+            <span>Share Files</span>
             <img alt='' />
           </div>
         </div>
+        <button>Block User</button>
       </div>
     </div>
   )
