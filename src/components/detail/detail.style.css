@@ -16,4 +16,11 @@
     border-radius: 50%;
     object-fit: cover;
   }
+
+  .detail__information {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
