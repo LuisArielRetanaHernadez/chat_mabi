@@ -1,4 +1,4 @@
-import './login.css'
+import './login.style.css'
 import { useState } from 'react'
 
 const Login = () => {
