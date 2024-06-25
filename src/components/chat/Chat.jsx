@@ -13,7 +13,11 @@ const Chat = () => {
   const chatRef = useRef(null)
 
   useEffect(() => {
-    if (chatRef?.current) chatRef.current.scrollTop = chatRef.current.scrollHeight
+    // if (chatRef?.current) 
+    if (chatRef.current) {
+      chatRef.current.scrollIntoView({ behavior: 'smooth' })
+      chatRef.current.scrollTop = chatRef.current.scrollHeight
+    }
   }, [chatRef?.current?.scrollHeight])
 
   return (
