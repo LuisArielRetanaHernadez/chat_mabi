@@ -30,12 +30,35 @@ const Detail = () => {
           </div>
           <div className='photos'>
             <div className='photos__item'>
-              <img alt='' />
-              <span>photo_11-11-1.png</span>
+              <div className='photos__photo-detial'>
+                <img alt='' />
+                <span>photo_11-11-1.png</span>
+              </div>
+              <span className='photo__icon-download'>
+                <FontAwesomeIcon icon={faFileArrowDown} />
+              </span>
             </div>
-            <span className='photo__icon-download'>
-              <FontAwesomeIcon icon={faFileArrowDown} />
-            </span>
+
+            <div className='photos__item'>
+              <div className='photos__photo-detial'>
+                <img alt='' />
+                <span>photo_11-11-1.png</span>
+              </div>
+              <span className='photo__icon-download'>
+                <FontAwesomeIcon icon={faFileArrowDown} />
+              </span>
+            </div>
+
+            <div className='photos__item'>
+              <div className='photos__photo-detial'>
+                <img alt='' />
+                <span>photo_11-11-1.png</span>
+              </div>
+              <span className='photo__icon-download'>
+                <FontAwesomeIcon icon={faFileArrowDown} />
+              </span>
+            </div>
+
           </div>
         </div>
         <div className='detail__option'>
