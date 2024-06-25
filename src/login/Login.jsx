@@ -40,8 +40,8 @@ const Login = () => {
       <div className='item'>
         <h2>Welcome back</h2>
         <form>
-          <input type="text" placeholder='Username' name='username' />
-          <input type="password" placeholder='Password' name='email' />
+          <input type="text" placeholder='Username' name='username' onChange={(e) => handleChange(e, setDataLogin)} />
+          <input type="password" placeholder='Password' name='email' onChange={(e) => handleChange(e, setDataLogin)} />
           <button>Sign In</button>
         </form>
       </div>
@@ -54,9 +54,9 @@ const Login = () => {
             Upload file
           </label>
           <input type='file' id='file' onChange={(e) => setAvatar({ file: e.target.files[0], url: URL.createObjectURL(e.target.files[0]) })} hidden />
-          <input type="text" placeholder='Username' name='usernanme' />
-          <input type="text" placeholder='Email' name='email' />
-          <input type="password" placeholder='Password' name='password' />
+          <input type="text" placeholder='Username' name='usernanme' onChange={(e) => handleChange(e, setRegister)} />
+          <input type="text" placeholder='Email' name='email' onChange={(e) => handleChange(e, setRegister)} />
+          <input type="password" placeholder='Password' name='password' onChange={(e) => handleChange(e, setRegister)} />
           <button>Sign In</button>
         </form>
       </div>
