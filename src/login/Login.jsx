@@ -7,6 +7,25 @@ const Login = () => {
     url: null
   })
 
+  const [dataLgoin, setDataLogin] = useState({
+    username: '',
+    password: ''
+  })
+  const [dataRegister, setRegister] = useState({
+    username: '',
+    password: '',
+    email: ''
+  })
+  const handleChange = (e, callback) => {
+    const { name, value } = e.target
+    if (typeof callback !== 'function') return
+    callback((prev) => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+
   const handleLogin = (e) => {
     e.preventDefault()
     console.log('Login')
