@@ -6,6 +6,16 @@ const Login = () => {
     file: null,
     url: null
   })
+
+  const handleLogin = (e) => {
+    e.preventDefault()
+    console.log('Login')
+  }
+
+  const handleRegister = (e) => {
+    e.preventDefault()
+    console.log('Register')
+  }
   return (
     <div className='login'>
       <div className='item'>
