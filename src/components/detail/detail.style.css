@@ -9,4 +9,11 @@
     align-items: center;
     gap: 20px;
   }
+
+  .detail__user-avatar-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
 }

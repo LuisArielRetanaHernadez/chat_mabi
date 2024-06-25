@@ -6,7 +6,7 @@ const Detail = () => {
   return (
     <div className='detail'>
       <div className='detail__user'>
-        <img className='detail__user' />
+        <img className='detail__user-avatar-image' />
         <h2>mabi Godzilla</h2>
         <p>Mamadisima</p>
       </div>
