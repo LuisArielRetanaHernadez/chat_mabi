@@ -95,6 +95,10 @@
         border-radius: 10px;
         background-color: blue;
       }
+
+      .message__datetime {
+        margin-right: auto;
+      }
     }
   }
   .bottom {
