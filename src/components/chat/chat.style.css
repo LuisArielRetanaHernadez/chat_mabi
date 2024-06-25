@@ -85,11 +85,15 @@
       .message__content {
         display: flex;
         flex-direction: column;
+        gap: 5px;
         flex: 1;
       }
 
       .message__text {
+        padding: 8px;
         text-align: start;
+        border-radius: 10px;
+        background-color: blue;
       }
     }
   }
