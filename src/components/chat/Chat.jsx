@@ -41,7 +41,7 @@ const Chat = () => {
             <p className='message__text'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis interdum erat eget tincidunt. Aliquam eleifend turpis non ex pharetra porttitor. In laoreet ac diam eget pulvinar. Quisque vel iaculis sapien. Fusce pulvinar bibendum lectus ut efficitur.
             </p>
-            <span className='message__datetime'></span>
+            <span className='message__datetime'>1/11/111 - 15:23pm</span>
           </div>
         </div>
         <div className='message'>
@@ -52,7 +52,7 @@ const Chat = () => {
             <p className='message__text'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis interdum erat eget tincidunt. Aliquam eleifend turpis non ex pharetra porttitor. In laoreet ac diam eget pulvinar. Quisque vel iaculis sapien. Fusce pulvinar bibendum lectus ut efficitur.
             </p>
-            <span className='message__datetime'></span>
+            <span className='message__datetime'>1/11/111 - 15:23pm</span>
           </div>
         </div>
         <div className='message own'>
@@ -63,7 +63,7 @@ const Chat = () => {
             <p className='message__text'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis interdum erat eget tincidunt. Aliquam eleifend turpis non ex pharetra porttitor. In laoreet ac diam eget pulvinar. Quisque vel iaculis sapien. Fusce pulvinar bibendum lectus ut efficitur.
             </p>
-            <span className='message__datetime'></span>
+            <span className='message__datetime'>1/11/111 - 15:23pm</span>
           </div>
         </div>
         <div className='message'>
@@ -74,7 +74,7 @@ const Chat = () => {
             <p className='message__text'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis interdum erat eget tincidunt. Aliquam eleifend turpis non ex pharetra porttitor. In laoreet ac diam eget pulvinar. Quisque vel iaculis sapien. Fusce pulvinar bibendum lectus ut efficitur.
             </p>
-            <span className='message__datetime'></span>
+            <span className='message__datetime'>1/11/111 - 15:23pm</span>
           </div>
         </div>
       </div>
