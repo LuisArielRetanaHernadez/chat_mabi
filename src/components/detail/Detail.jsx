@@ -6,7 +6,7 @@ const Detail = () => {
   return (
     <div className="detail">
       <div className="user">
-        <img src="" alt="" />
+        <img src="https://images.pexels.com/photos/1302436/pexels-photo-1302436.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
         <h2>mabigod</h2>
         <p>Lorem ipsum dolor sit amet.</p>
       </div>
