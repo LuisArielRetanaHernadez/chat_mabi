@@ -40,8 +40,8 @@ const Login = () => {
       <div className='item'>
         <h2>Welcome back</h2>
         <form onSubmit={handleLogin}>
-          <input type="text" placeholder='Username' name='username' onChange={(e) => handleChange(e, setDataLogin)} />
-          <input type="password" placeholder='Password' name='email' onChange={(e) => handleChange(e, setDataLogin)} />
+          <input type="text" placeholder='Username' value={dataLgoin.username} name='username' onChange={(e) => handleChange(e, setDataLogin)} />
+          <input type="password" placeholder='Password' value={dataLgoin.password} name='email' onChange={(e) => handleChange(e, setDataLogin)} />
           <button>Sign In</button>
         </form>
       </div>
