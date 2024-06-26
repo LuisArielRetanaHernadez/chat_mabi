@@ -2,7 +2,10 @@ import './login.style.css'
 import { useState } from 'react'
 
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../lib/firebase'
+import { auth, db } from '../lib/firebase'
+import { doc, setDoc } from "firebase/firestore";
+import { toast } from 'react-toastify';
+
 
 const Login = () => {
   const [avatar, setAvatar] = useState({
@@ -40,7 +43,15 @@ const Login = () => {
     e.preventDefault()
     try {
       const resposne = await createUserWithEmailAndPassword(auth, dataRegister.email, dataRegister.password)
-      console.log(resposne)
+      // Add a new document in collection "cities"
+      await setDoc(doc(db, "users", resposne.user.uid), {
+        ...dataRegister,
+        id: resposne.user.uid,
+        blocked: [], // blocked: []
+        avatar: avatar.url
+      });
+      toast.success('Register successfully')
+      // console.log("Document written with ID: ", docRef.id);
     } catch (error) {
       console.log(error)
     }
