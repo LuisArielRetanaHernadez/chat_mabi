@@ -25,7 +25,6 @@ const Login = () => {
   const handleChange = (e, callback) => {
     const { name, value } = e.target
     console.log(name, value)
-    console.log(callback)
     if (typeof callback !== 'function') return
     callback((prev) => ({
       ...prev,
@@ -50,8 +49,11 @@ const Login = () => {
         blocked: [], // blocked: []
         avatar: avatar.url
       });
-      toast.success('Register successfully')
-      // console.log("Document written with ID: ", docRef.id);
+
+      await setDoc(doc(db, "chats", resposne.user.uid), {
+        chats: []
+      });
+      toast('Register successfully')
     } catch (error) {
       console.log(error)
     }
@@ -75,9 +77,9 @@ const Login = () => {
             Upload file
           </label>
           <input type='file' id='file' onChange={(e) => setAvatar({ file: e.target.files[0], url: URL.createObjectURL(e.target.files[0]) })} hidden />
-          <input type="text" placeholder='Username' value={dataRegister.username} name='usernanme' onChange={(e) => handleChange(e, setRegister)} />
-          <input type="text" placeholder='Email' value={dataRegister.email} name='email' onChange={(e) => handleChange(e, setRegister)} />
-          <input type="password" placeholder='Password' value={dataRegister.password} name='password' onChange={(e) => handleChange(e, setRegister)} />
+          <input type="text" placeholder='Username' name='usernanme' onChange={(e) => handleChange(e, setRegister)} />
+          <input type="text" placeholder='Email' name='email' onChange={(e) => handleChange(e, setRegister)} />
+          <input type="password" placeholder='Password' name='password' onChange={(e) => handleChange(e, setRegister)} />
           <button>Sign In</button>
         </form>
       </div>
