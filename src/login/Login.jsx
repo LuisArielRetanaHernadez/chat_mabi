@@ -1,6 +1,9 @@
 import './login.style.css'
 import { useState } from 'react'
 
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../lib/firebase'
+
 const Login = () => {
   const [avatar, setAvatar] = useState({
     file: null,
@@ -18,6 +21,8 @@ const Login = () => {
   })
   const handleChange = (e, callback) => {
     const { name, value } = e.target
+    console.log(name, value)
+    console.log(callback)
     if (typeof callback !== 'function') return
     callback((prev) => ({
       ...prev,
@@ -31,9 +36,14 @@ const Login = () => {
     console.log('Login')
   }
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault()
-    console.log('Register')
+    try {
+      const resposne = await createUserWithEmailAndPassword(auth, dataRegister.email, dataRegister.password)
+      console.log(resposne)
+    } catch (error) {
+      console.log(error)
+    }
   }
   return (
     <div className='login'>
