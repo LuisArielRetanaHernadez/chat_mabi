@@ -39,7 +39,7 @@ const Login = () => {
     <div className='login'>
       <div className='item'>
         <h2>Welcome back</h2>
-        <form>
+        <form onSubmit={handleLogin}>
           <input type="text" placeholder='Username' name='username' onChange={(e) => handleChange(e, setDataLogin)} />
           <input type="password" placeholder='Password' name='email' onChange={(e) => handleChange(e, setDataLogin)} />
           <button>Sign In</button>
@@ -48,7 +48,7 @@ const Login = () => {
       <div className='separator'></div>
       <div className='item'>
         <h2>Create an Account</h2>
-        <form>
+        <form onSubmit={handleRegister}>
           <label htmlFor='file'>
             <img src={avatar.url} />
             Upload file
