@@ -100,6 +100,7 @@ const Login = () => {
       await setDoc(doc(db, "chats", resposne.user.uid), {
         chats: []
       });
+      await uploadImageProfile()
       toast('Register successfully')
     } catch (error) {
       console.log(error)
