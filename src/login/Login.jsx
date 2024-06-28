@@ -59,7 +59,7 @@ const Login = () => {
         avatar: urlImageProfile
       });
 
-      await setDoc(doc(db, "chats", resposne.user.uid), {
+      await setDoc(doc(db, "userChats", resposne.user.uid), {
         chats: []
       });
       toast('Register successfully')
