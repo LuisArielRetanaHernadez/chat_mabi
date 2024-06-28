@@ -15,7 +15,7 @@ const Login = () => {
   })
 
   const [dataLgoin, setDataLogin] = useState({
-    username: '',
+    email: '',
     password: ''
   })
   const [dataRegister, setRegister] = useState({
@@ -37,7 +37,8 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      await signInWithEmailAndPassword(auth, dataLgoin.username, dataLgoin.password)
+      await signInWithEmailAndPassword(auth, dataLgoin.email, dataLgoin.password)
+      // toast('Login successfully')
       toast('Login successfully')
     } catch (error) {
       console.log(error)
@@ -72,8 +73,8 @@ const Login = () => {
       <div className='item'>
         <h2>Welcome back</h2>
         <form onSubmit={handleLogin}>
-          <input type="text" placeholder='Username' value={dataLgoin.username} name='username' onChange={(e) => handleChange(e, setDataLogin)} />
-          <input type="password" placeholder='Password' value={dataLgoin.password} name='email' onChange={(e) => handleChange(e, setDataLogin)} />
+          <input type="text" placeholder='Username' value={dataLgoin.email} name='email' onChange={(e) => handleChange(e, setDataLogin)} />
+          <input type="password" placeholder='Password' value={dataLgoin.password} name='password' onChange={(e) => handleChange(e, setDataLogin)} />
           <button>Sign In</button>
         </form>
       </div>
