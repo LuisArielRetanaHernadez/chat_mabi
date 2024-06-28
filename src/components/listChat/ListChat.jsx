@@ -8,6 +8,7 @@ import { useStore } from "../../lib/userStorage"
 import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore"
 import { db } from "../../lib/firebase"
 import { useChatStore } from "../../lib/useChatStore"
+import AddUser from "../addUser/AddUser"
 
 const ListChat = () => {
   const [chats, setChats] = useState([])
@@ -91,6 +92,7 @@ const ListChat = () => {
           </div>
         </div> || <span>Sin chats</span>
       ))}
+      {addMode && <AddUser />}
     </div>
   )
 }
