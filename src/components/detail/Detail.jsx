@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './detail.style.css'
 import { faFileArrowDown, faGears, faInfo, faShare, faShareFromSquare } from '@fortawesome/free-solid-svg-icons'
+import { auth } from '../../lib/firebase'
 
 const Detail = () => {
   return (
@@ -87,7 +88,7 @@ const Detail = () => {
         </div>
         <button >
         </button>
-        <button className="logout" >
+        <button className="logout" onClick={() => auth.signOut()}>
           Logout
         </button>
       </div>
