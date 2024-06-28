@@ -7,11 +7,14 @@ import EmojiPicker from 'emoji-picker-react'
 import { useEffect, useRef, useState } from 'react'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
+import { useChatStore } from '../../lib/useChatStore'
 
 const Chat = () => {
   const [showEmojis, setShowEmojis] = useState(false)
   const [message, setMessage] = useState("")
   const [chat, setChat] = useState(null)
+
+  const { chatId } = useChatStore()
 
   const chatRef = useRef(null)
 
@@ -25,7 +28,7 @@ const Chat = () => {
 
   useEffect(() => {
     const unSub = onSnapshot(
-      doc(db, "chats", ''),
+      doc(db, "chats", chatId),
       (res) => {
         console.log(res.data())
         setChat(res.data())
@@ -35,7 +38,7 @@ const Chat = () => {
     return () => {
       unSub()
     }
-  })
+  }, [chatId])
 
   return (
     <div className='chat'>
