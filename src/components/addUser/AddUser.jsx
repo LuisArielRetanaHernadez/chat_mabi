@@ -16,18 +16,17 @@ import { useStore } from "../../lib/userStorage";
 
 const AddUser = () => {
   const [user, setUser] = useState(null);
+  const [searchUser, serSearchUser] = useState(null);
 
   const { currentUser } = useStore();
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const username = formData.get("username");
 
     try {
       const userRef = collection(db, "users");
 
-      const q = query(userRef, where("username", "==", username));
+      const q = query(userRef, where("username", "==", searchUser));
 
       const querySnapShot = await getDocs(q);
 
@@ -41,7 +40,7 @@ const AddUser = () => {
 
   const handleAdd = async () => {
     const chatRef = collection(db, "chats");
-    const userChatsRef = collection(db, "userchats");
+    const userChatsRef = collection(db, "chats");
 
     try {
       const newChatRef = doc(chatRef);
@@ -73,10 +72,15 @@ const AddUser = () => {
     }
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    serSearchUser((prev) => ({ ...prev, [name]: value }));
+  };
+
   return (
     <div className="addUser">
       <form onSubmit={handleSearch}>
-        <input type="text" placeholder="Username" name="username" />
+        <input type="text" placeholder="Username" name="username" onChange={handleChange} />
         <button>Search</button>
       </form>
       {user && (
