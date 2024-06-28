@@ -1,7 +1,7 @@
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage } from "./firebase";
 
-const uploadProfile = async (file, source = '') => {
+const uploadFile = async (file, source = '') => {
   if (!file) return;
   const nameFile = new Date().getTime() + file.name;
   const storageRef = ref(storage, `${source}/${nameFile}`);
@@ -33,4 +33,4 @@ const uploadProfile = async (file, source = '') => {
   })
 }
 
-export default uploadProfile;
+export default uploadFile;
