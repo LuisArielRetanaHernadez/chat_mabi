@@ -78,7 +78,7 @@ const ListChat = () => {
           </span>
           <input type="text" />
         </div>
-        <span className="icon add">
+        <span className="icon add" onClick={() => setAddMode(prev => !prev)}>
           <FontAwesomeIcon icon={faCirclePlus} />
         </span>
       </div>
