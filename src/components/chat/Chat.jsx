@@ -5,10 +5,13 @@ import { faCircleInfo, faFaceSmileWink, faFileImage, faMicrophone, faMobileScree
 // emoji picker react
 import EmojiPicker from 'emoji-picker-react'
 import { useEffect, useRef, useState } from 'react'
+import { doc, onSnapshot } from 'firebase/firestore'
+import { db } from '../../lib/firebase'
 
 const Chat = () => {
   const [showEmojis, setShowEmojis] = useState(false)
   const [message, setMessage] = useState("")
+  const [chat, setChat] = useState(null)
 
   const chatRef = useRef(null)
 
@@ -19,6 +22,20 @@ const Chat = () => {
       chatRef.current.scrollTop = chatRef.current.scrollHeight
     }
   }, [chatRef?.current?.scrollHeight])
+
+  useEffect(() => {
+    const unSub = onSnapshot(
+      doc(db, "chats", ''),
+      (res) => {
+        console.log(res.data())
+        setChat(res.data())
+      }
+    )
+
+    return () => {
+      unSub()
+    }
+  })
 
   return (
     <div className='chat'>
