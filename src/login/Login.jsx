@@ -86,7 +86,7 @@ const Login = () => {
             Upload file
           </label>
           <input type='file' id='file' onChange={(e) => setAvatar({ file: e.target.files[0], url: URL.createObjectURL(e.target.files[0]) })} hidden />
-          <input type="text" placeholder='Username' name='usernanme' onChange={(e) => handleChange(e, setRegister)} />
+          <input type="text" placeholder='Username' name='username' onChange={(e) => handleChange(e, setRegister)} />
           <input type="text" placeholder='Email' name='email' onChange={(e) => handleChange(e, setRegister)} />
           <input type="password" placeholder='Password' name='password' onChange={(e) => handleChange(e, setRegister)} />
           <button>Sign In</button>
