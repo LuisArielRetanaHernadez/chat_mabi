@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "./listChat.style.css"
 import { useEffect, useState } from 'react'
 import { useStore } from "../../lib/userStorage"
-import { doc, onSnapshot } from "firebase/firestore"
+import { doc, getDoc, onSnapshot } from "firebase/firestore"
 import { db } from "../../lib/firebase"
 
 const ListChat = () => {
@@ -16,9 +16,27 @@ const ListChat = () => {
 
   useEffect(() => {
 
-    const unSub = onSnapshot(doc(db, "chats", currentUser.id), (doc) => {
+    const unSub = onSnapshot(doc(db, "chats", currentUser.id), async (doc) => {
       console.log("Current data: ", doc.data());
-      setChats(doc.data().chats)
+
+      const itemsChat = doc.data().chats
+      const promisse = itemsChat.map(async (item) => {
+        console.log(item)
+        const userRef = doc(db, "users", item.receiverId)
+        const userSnap = await getDoc(userRef)
+
+        const user = userSnap.data()
+
+        return { ...user, lastMessage: item.lastMessage }
+      });
+
+      const chatData = await Promise.all(promisse)
+      setChats(chatData.sort((a, b) => {
+        if (a.lastMessage && b.lastMessage) {
+          return a.lastMessage.time - b.lastMessage.time
+        }
+      }))
+
     });
 
     return () => {
