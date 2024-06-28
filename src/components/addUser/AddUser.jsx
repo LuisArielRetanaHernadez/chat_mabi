@@ -1,4 +1,4 @@
-import "./addUser.css";
+import "./addUser.style.css";
 import { db } from "../../lib/firebase";
 import {
   arrayUnion,
