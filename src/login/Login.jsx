@@ -2,10 +2,9 @@ import './login.style.css'
 import { useState } from 'react'
 
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
-import { auth, db, storage } from '../lib/firebase'
+import { auth, db } from '../lib/firebase'
 import { doc, setDoc } from "firebase/firestore";
 import { toast } from 'react-toastify';
-import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import uploadFile from '../lib/uploadFile';
 
 
