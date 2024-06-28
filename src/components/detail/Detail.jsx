@@ -1,9 +1,27 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './detail.style.css'
 import { faFileArrowDown, faGears, faInfo, faShare, faShareFromSquare } from '@fortawesome/free-solid-svg-icons'
-import { auth } from '../../lib/firebase'
+import { auth, db } from '../../lib/firebase'
+import { useEffect, useState } from 'react'
+import { useStore } from '../../lib/userStorage'
+import { doc, onSnapshot } from 'firebase/firestore'
 
 const Detail = () => {
+  const [chatList, setChatList] = useState([])
+  const [addMode, setAddMode] = useState(false)
+
+  const { currentUser } = useStore()
+
+  useEffect(() => {
+    const unsub = onSnapshot(doc(db, "chats", currentUser.id), (doc) => {
+      console.log("Current data: ", doc.data());
+      setChatList(doc.data().chats)
+    });
+
+    return () => {
+      unsub()
+    }
+  }, [currentUser.id])
   return (
     <div className="detail">
       <div className="user">
