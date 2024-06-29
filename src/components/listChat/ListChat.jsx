@@ -78,7 +78,7 @@ const ListChat = () => {
       await updateDoc(userChatsRef, {
         chats: userChats,
       });
-      changeChat(chat.chatId, chat.user.id);
+      changeChat(chat.chatId, chat.user);
     } catch (err) {
       console.log(err);
     }

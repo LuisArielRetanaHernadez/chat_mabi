@@ -36,8 +36,8 @@ function App() {
       {currentUser ? (
         <>
           <List />
-          {chatId || <Chat />}
-          {chatId || <Detail />}
+          {chatId && <Chat />}
+          {chatId && <Detail />}
         </>
       ) : (
         <Login />
