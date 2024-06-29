@@ -61,50 +61,19 @@ const Chat = () => {
         </div>
       </div>
       <div className='center' ref={chatRef}>
-        <div className='message own'>
-          <figure className='message__avatar-content'>
-            <img className='message__avatar-image' src='https://images.pexels.com/photos/1302436/pexels-photo-1302436.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
-          </figure>
-          <div className='message__content'>
-            <p className='message__text'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis interdum erat eget tincidunt. Aliquam eleifend turpis non ex pharetra porttitor. In laoreet ac diam eget pulvinar. Quisque vel iaculis sapien. Fusce pulvinar bibendum lectus ut efficitur.
-            </p>
-            <span className='message__datetime'>1/11/111 - 15:23pm</span>
+        {chat?.messages?.map((message) => (
+          <div key={message.createAt} className={`message ${message.from === "" ? "own" : ""}`}>
+            <div className='message__avatar-content'>
+              <img className='message__avatar-image' src={message.img}></img>
+            </div>
+            <div className='message__content'>
+              <p className='message__text'>
+                {message.text}
+              </p>
+              <span className='message__datetime'>{message.createdAt}</span>
+            </div>
           </div>
-        </div>
-        <div className='message'>
-          <figure className='message__avatar-content'>
-            <img className='message__avatar-image' src='https://images.pexels.com/photos/3901102/pexels-photo-3901102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
-          </figure>
-          <div className='message__content'>
-            <p className='message__text'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis interdum erat eget tincidunt. Aliquam eleifend turpis non ex pharetra porttitor. In laoreet ac diam eget pulvinar. Quisque vel iaculis sapien. Fusce pulvinar bibendum lectus ut efficitur.
-            </p>
-            <span className='message__datetime'>1/11/111 - 15:23pm</span>
-          </div>
-        </div>
-        <div className='message own'>
-          <figure className='message__avatar-content'>
-            <img className='message__avatar-image' src='https://images.pexels.com/photos/1302436/pexels-photo-1302436.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
-          </figure>
-          <div className='message__content'>
-            <p className='message__text'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis interdum erat eget tincidunt. Aliquam eleifend turpis non ex pharetra porttitor. In laoreet ac diam eget pulvinar. Quisque vel iaculis sapien. Fusce pulvinar bibendum lectus ut efficitur.
-            </p>
-            <span className='message__datetime'>1/11/111 - 15:23pm</span>
-          </div>
-        </div>
-        <div className='message'>
-          <figure className='message__avatar-content'>
-            <img className='message__avatar-image' src='https://images.pexels.com/photos/3901102/pexels-photo-3901102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
-          </figure>
-          <div className='message__content'>
-            <p className='message__text'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis interdum erat eget tincidunt. Aliquam eleifend turpis non ex pharetra porttitor. In laoreet ac diam eget pulvinar. Quisque vel iaculis sapien. Fusce pulvinar bibendum lectus ut efficitur.
-            </p>
-            <span className='message__datetime'>1/11/111 - 15:23pm</span>
-          </div>
-        </div>
+        )) || <span>Chat vacio</span>}
       </div>
       <div className='bottom'>
         <div className='icons'>
