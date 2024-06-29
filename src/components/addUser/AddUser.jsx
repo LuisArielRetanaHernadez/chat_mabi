@@ -25,11 +25,11 @@ const AddUser = () => {
 
     try {
       const userRef = collection(db, "users");
-
-      const q = query(userRef, where("username", "==", searchUser));
-
+      console.log('search user ', searchUser);
+      const q = query(userRef, where("username", "==", searchUser.username));
+      console.log('query user a ', q);
       const querySnapShot = await getDocs(q);
-
+      console.log('query user get data ', querySnapShot);
       if (!querySnapShot.empty) {
         setUser(querySnapShot.docs[0].data());
       }
