@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { useStore } from './userStorage'
 
 export const useChatStore = create((set) => ({
+  chatId: null,
   user: null,
   isCurrentUserBlocked: false,
   isReceiverBlocked: false,
