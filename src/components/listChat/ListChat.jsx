@@ -19,12 +19,10 @@ const ListChat = () => {
 
   useEffect(() => {
 
-    const unSub = onSnapshot(doc(db, "userChats", currentUser.id), async (doc) => {
-      console.log("Current data: ", doc.data());
+    const unSub = onSnapshot(doc(db, "userChats", currentUser.id), async (res) => {
 
-      const itemsChat = doc.data().chats
+      const itemsChat = res.data().chats
       const promisse = itemsChat.map(async (item) => {
-        console.log(item)
         const userRef = doc(db, "users", item.receiverId)
         const userSnap = await getDoc(userRef)
 
@@ -34,11 +32,13 @@ const ListChat = () => {
       });
 
       const chatData = await Promise.all(promisse)
+      console.log('chatData ', chatData)
       setChats(chatData.sort((a, b) => {
         if (a.lastMessage && b.lastMessage) {
           return a.lastMessage.time - b.lastMessage.time
         }
       }))
+      console.log('chats ', chats)
 
     });
 
