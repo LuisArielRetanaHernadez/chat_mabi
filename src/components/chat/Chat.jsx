@@ -5,9 +5,10 @@ import { faCircleInfo, faFaceSmileWink, faFileImage, faMicrophone, faMobileScree
 // emoji picker react
 import EmojiPicker from 'emoji-picker-react'
 import { useEffect, useRef, useState } from 'react'
-import { doc, onSnapshot } from 'firebase/firestore'
+import { doc, onSnapshot, updateDoc } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
 import { useChatStore } from '../../lib/useChatStore'
+import { useStore } from '../../lib/userStorage'
 
 const Chat = () => {
   const [showEmojis, setShowEmojis] = useState(false)
@@ -15,6 +16,7 @@ const Chat = () => {
   const [chat, setChat] = useState(null)
 
   const { chatId } = useChatStore()
+  const { currentUser } = useStore()
 
   const chatRef = useRef(null)
 
@@ -36,6 +38,22 @@ const Chat = () => {
       unSub();
     };
   }, [chatId])
+
+  const handleSendMessage = async () => {
+    if (!message.trim()) return
+    // send message to firebase
+    try {
+      await updateDoc(doc(db, "chats", chatId), {
+        messages: [...chat.messages, {
+          text: message,
+          senderId: currentUser.uid,
+          createdAt: new Date().getTime(),
+        }]
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className='chat'>
@@ -96,7 +114,7 @@ const Chat = () => {
             <EmojiPicker open={showEmojis} onEmojiClick={emoji => setMessage(prev => prev + emoji.emoji)} />
           </div>
         </div>
-        <button className='sendButton'>Send</button>
+        <button className='sendButton' onClick={() => handleSendMessage}>Send</button>
       </div>
     </div>
   )
