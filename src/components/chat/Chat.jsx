@@ -5,17 +5,18 @@ import { faCircleInfo, faFaceSmileWink, faFileImage, faMicrophone, faMobileScree
 // emoji picker react
 import EmojiPicker from 'emoji-picker-react'
 import { useEffect, useRef, useState } from 'react'
-import { doc, onSnapshot, updateDoc } from 'firebase/firestore'
+import { doc, getDoc, onSnapshot, updateDoc } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
 import { useChatStore } from '../../lib/useChatStore'
 import { useStore } from '../../lib/userStorage'
+import { arrayUnion } from 'firebase/firestore'
 
 const Chat = () => {
   const [showEmojis, setShowEmojis] = useState(false)
   const [message, setMessage] = useState("")
   const [chat, setChat] = useState(null)
 
-  const { chatId } = useChatStore()
+  const { chatId, user } = useChatStore()
   const { currentUser } = useStore()
 
   const chatRef = useRef(null)
@@ -47,9 +48,41 @@ const Chat = () => {
         messages: [...chat.messages, {
           text: message,
           senderId: currentUser.uid,
-          createdAt: new Date().getTime(),
+          createdAt: new Date(),
         }]
       })
+
+      const userIDs = [currentUser.id, user.id]
+
+      userIDs.forEach(async (id) => {
+        const userChatsRef = doc(db, "userChats", id)
+        const userChatsSnapshot = await getDoc(userChatsRef)
+
+        if (userChatsSnapshot.exists()) {
+          // await updateDoc(userChatsRef, {
+          //   chats: arrayUnion({
+          //     chatId,
+          //     lastMessage: message,
+          //     receiverId: chat.users.find(user => user !== currentUser.uid),
+          //     updatedAt: Date.now(),
+          //   })
+          // })
+
+          const userChatsData = userChatsSnapshot.data()
+          const chatIndex = userChatsData.chats.findIndex(chat => chat.chatId === chatId)
+          if (chatIndex !== -1) {
+            userChatsData.chats[chatIndex].lastMessage = message
+            userChatsData.chats[chatIndex].updatedAt = Date.now()
+            userChatsData.chats[chatIndex].isSeen = id === currentUser.id
+
+            await updateDoc(userChatsRef, {
+              chats: userChatsData.chats
+            })
+          }
+        }
+      })
+
+
     } catch (error) {
       console.log(error)
     }
