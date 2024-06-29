@@ -27,17 +27,14 @@ const Chat = () => {
   }, [chatRef?.current?.scrollHeight])
 
   useEffect(() => {
-    const unSub = onSnapshot(
-      doc(db, "chats", chatId),
-      (res) => {
-        console.log(res.data())
-        setChat(res.data())
-      }
-    )
+    if (!chatId) return
+    const unSub = onSnapshot(doc(db, "chats", chatId), (res) => {
+      setChat(res.data());
+    });
 
     return () => {
-      unSub()
-    }
+      unSub();
+    };
   }, [chatId])
 
   return (
