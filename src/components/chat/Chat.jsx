@@ -9,7 +9,7 @@ import { doc, getDoc, onSnapshot, updateDoc } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
 import { useChatStore } from '../../lib/useChatStore'
 import { useStore } from '../../lib/userStorage'
-import { arrayUnion } from 'firebase/firestore'
+// import { arrayUnion } from 'firebase/firestore'
 
 const Chat = () => {
   const [showEmojis, setShowEmojis] = useState(false)
@@ -24,7 +24,7 @@ const Chat = () => {
   useEffect(() => {
     // if (chatRef?.current) 
     if (chatRef.current) {
-      chatRef.current.scrollIntoView({ behavior: 'smooth' })
+      // chatRef.current.scrollIntoView({ behavior: 'smooth' })
       chatRef.current.scrollTop = chatRef.current.scrollHeight
     }
   }, [chatRef?.current?.scrollHeight])
@@ -32,6 +32,8 @@ const Chat = () => {
   useEffect(() => {
     if (!chatId) return
     const unSub = onSnapshot(doc(db, "chats", chatId), (res) => {
+      console.log(res.data())
+      // set chat data
       setChat(res.data());
     });
 
@@ -112,8 +114,8 @@ const Chat = () => {
         </div>
       </div>
       <div className='center' ref={chatRef}>
-        {chat?.messages?.map((message) => (
-          <div key={message.createAt} className={`message ${message.from === "" ? "own" : ""}`}>
+        {chat?.messages?.map((message, index) => (
+          <div key={index} className={`message ${message.senderId === currentUser.id ? "own" : ""}`}>
             <div className='message__avatar-content'>
               <img className='message__avatar-image' src={message.img}></img>
             </div>
@@ -124,7 +126,7 @@ const Chat = () => {
               <span className='message__datetime'>{message.createdAt}</span>
             </div>
           </div>
-        )) || <span>Chat vacio</span>}
+        ))}
       </div>
       <div className='bottom'>
         <div className='icons'>
@@ -147,7 +149,7 @@ const Chat = () => {
             <EmojiPicker open={showEmojis} onEmojiClick={emoji => setMessage(prev => prev + emoji.emoji)} />
           </div>
         </div>
-        <button className='sendButton' onClick={() => handleSendMessage}>Send</button>
+        <button className='sendButton' onClick={() => handleSendMessage()}>Send</button>
       </div>
     </div>
   )
