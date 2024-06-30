@@ -3,9 +3,18 @@ import './userInfo.style.css'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useStore } from '../../lib/userStorage'
+import { useRef } from 'react'
+import { auth } from '../../lib/firebase'
 
 const UserInfo = () => {
   const { currentUser } = useStore()
+  const menuListRef = useRef(null)
+
+  const handleMenu = () => {
+    menuListRef.current.classList.toggle('menu__list--active')
+  }
+
+  // console.log(currentUser);
   return (
     <div className="userInfo">
       <div className="user">
@@ -19,9 +28,15 @@ const UserInfo = () => {
         <span className='icon'>
           <FontAwesomeIcon icon={faPenToSquare} />
         </span>
-        <span className='icon'>
-          <FontAwesomeIcon icon={faEllipsis} />
-        </span>
+        <nav className='menu'>
+          <span className='menu__button icon' onClick={() => handleMenu()}>
+            <FontAwesomeIcon icon={faEllipsis} />
+          </span>
+          <ul className='menu__list' ref={menuListRef}>
+            <li className='menu__item' onClick={() => auth.signOut()}>logout</li>
+          </ul>
+        </nav>
+
       </div>
     </div>
   )

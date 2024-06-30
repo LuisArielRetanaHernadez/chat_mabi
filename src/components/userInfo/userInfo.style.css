@@ -32,3 +32,33 @@
   cursor: pointer;
   color: gray;
 }
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+}
+
+.menu__list {
+  padding: 5px;
+  color: black;
+  border-radius: 5px;
+  list-style-type: none;
+  background-color: white;
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: -20px;
+}
+
+.menu__item {
+  margin-top: 5px;
+  padding: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.menu__list--active {
+  display: inline-block;
+}
