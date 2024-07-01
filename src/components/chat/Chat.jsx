@@ -9,7 +9,7 @@ import { doc, getDoc, onSnapshot, updateDoc } from 'firebase/firestore'
 import { db } from '../../lib/firebase'
 import { useChatStore } from '../../lib/useChatStore'
 import { useStore } from '../../lib/userStorage'
-// import { arrayUnion } from 'firebase/firestore'
+import { arrayUnion } from 'firebase/firestore'
 
 const Chat = () => {
   const [showEmojis, setShowEmojis] = useState(false)
@@ -59,18 +59,19 @@ const Chat = () => {
       const userIDs = [currentUser.id, user.id]
 
       userIDs.forEach(async (id) => {
+
+
+        await updateDoc(doc(db, "chats", chatId), {
+          messages: arrayUnion({
+            sedndeId: currentUser.id,
+            message,
+            updatedAt: Date.now(),
+          })
+        })
         const userChatsRef = doc(db, "userChats", id)
         const userChatsSnapshot = await getDoc(userChatsRef)
-
         if (userChatsSnapshot.exists()) {
-          // await updateDoc(userChatsRef, {
-          //   chats: arrayUnion({
-          //     chatId,
-          //     lastMessage: message,
-          //     receiverId: chat.users.find(user => user !== currentUser.uid),
-          //     updatedAt: Date.now(),
-          //   })
-          // })
+
 
           const userChatsData = userChatsSnapshot.data()
           const chatIndex = userChatsData.chats.findIndex(chat => chat.chatId === chatId)
