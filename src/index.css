@@ -6,6 +6,16 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
+:root {
+  /* colors */
+  --white: #ffffff;
+  --black: #000;
+  --blue-cobalto: #0f67b1;
+  --gray-pizarra: #3f4e4f;
+  --pink-fucsia: #e90074;
+  --purple: #240750;
+}
+
 body {
   color: white;
   background-color: black;
@@ -14,8 +24,6 @@ body {
 .container {
   width: 100vw;
   height: 100vh;
-  border-radius: 10px;
-  backdrop-filter: blur(20px) saturate(180%);
   background-color: rgba(128, 128, 128, 0.377);
   display: flex;
 }
