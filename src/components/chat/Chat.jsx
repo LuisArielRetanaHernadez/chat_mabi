@@ -90,6 +90,7 @@ const Chat = () => {
     } catch (error) {
       console.log(error)
     }
+    setMessage('')
   }
 
   return (
