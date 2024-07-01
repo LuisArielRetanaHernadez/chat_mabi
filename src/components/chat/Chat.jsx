@@ -14,6 +14,10 @@ import { arrayUnion } from 'firebase/firestore'
 const Chat = () => {
   const [showEmojis, setShowEmojis] = useState(false)
   const [message, setMessage] = useState("")
+  const [image, setImage] = useState({
+    file: null,
+    url: null
+  })
   const [chat, setChat] = useState(null)
 
   const { chatId, user } = useChatStore()
