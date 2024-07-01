@@ -10,6 +10,7 @@ import { db } from '../../lib/firebase'
 import { useChatStore } from '../../lib/useChatStore'
 import { useStore } from '../../lib/userStorage'
 import { arrayUnion } from 'firebase/firestore'
+import uploadFile from '../../lib/uploadFile'
 
 const Chat = () => {
   const [showEmojis, setShowEmojis] = useState(false)
@@ -49,6 +50,15 @@ const Chat = () => {
 
   const handleSendMessage = async () => {
     if (!message.trim()) return
+
+    let imageURL = null
+
+    if (image.file) {
+      imageURL = await uploadFile(image.file, 'images')
+    } else {
+      // send message to firebase
+    }
+
     // send message to firebase
     try {
       await updateDoc(doc(db, "chats", chatId), {
@@ -56,6 +66,7 @@ const Chat = () => {
           text: message,
           senderId: currentUser.uid,
           imgSender: currentUser.avatar,
+          ...(imageURL && { img: imageURL }),
           createdAt: Date.now()
         }]
       })
@@ -98,6 +109,7 @@ const Chat = () => {
       console.log(error)
     }
     setMessage('')
+    setImage({ file: null, url: null })
   }
 
   return (
