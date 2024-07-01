@@ -18,6 +18,7 @@ const Chat = () => {
 
   const { chatId, user } = useChatStore()
   const { currentUser } = useStore()
+  console.log('current user ', currentUser)
 
   const chatRef = useRef(null)
 
@@ -50,7 +51,8 @@ const Chat = () => {
         messages: [...chat.messages, {
           text: message,
           senderId: currentUser.uid,
-          createdAt: new Date(),
+          imgSender: currentUser.avatar,
+          createdAt: Date.now()
         }]
       })
 
@@ -114,16 +116,16 @@ const Chat = () => {
         </div>
       </div>
       <div className='center' ref={chatRef}>
-        {chat?.messages?.map((message, index) => (
-          <div key={index} className={`message ${message.senderId === currentUser.id ? "own" : ""}`}>
+        {chat?.messages && chat?.messages?.map((message, index) => (
+          <div key={index} className={`message ${message.senderId === currentUser.uid ? "own" : ""}`}>
             <div className='message__avatar-content'>
-              <img className='message__avatar-image' src={message.img}></img>
+              <img className='message__avatar-image' src={message.imgSender}></img>
             </div>
             <div className='message__content'>
               <p className='message__text'>
                 {message.text}
               </p>
-              <span className='message__datetime'>{message.createdAt}</span>
+              <span className='message__datetime'>{new Date(message.createdAt).toLocaleDateString()}</span>
             </div>
           </div>
         ))}
