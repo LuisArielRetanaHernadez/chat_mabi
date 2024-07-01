@@ -32,7 +32,7 @@ function App() {
       </>
     );
   return (
-    <div className="container">
+    <div className="App">
       {currentUser ? (
         <>
           <List />

@@ -1,3 +1,9 @@
+.App {
+  width: 100dvw;
+  min-height: 100dvh;
+  background-color: var(--white);
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
