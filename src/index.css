@@ -7,23 +7,13 @@
 }
 
 body {
-  height: 100vh;
   color: white;
   background-color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#root {
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
 .container {
-  width: 90vw;
-  height: 90vh;
+  width: 100vw;
+  height: 100vh;
   border-radius: 10px;
   backdrop-filter: blur(20px) saturate(180%);
   background-color: rgba(128, 128, 128, 0.377);
