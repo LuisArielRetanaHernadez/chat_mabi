@@ -15,7 +15,7 @@ const ListChat = () => {
   const [addMode, setAddMode] = useState(false)
 
   const { currentUser } = useStore()
-  const { changeChat, chatId } = useChatStore()
+  const { changeChat } = useChatStore()
 
   useEffect(() => {
 
