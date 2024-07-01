@@ -56,18 +56,20 @@ const Chat = () => {
         }]
       })
 
+      await updateDoc(doc(db, "chats", chatId), {
+        messages: arrayUnion({
+          sedndeId: currentUser.id,
+          message,
+          updatedAt: Date.now(),
+        })
+      })
+
       const userIDs = [currentUser.id, user.id]
 
       userIDs.forEach(async (id) => {
 
 
-        await updateDoc(doc(db, "chats", chatId), {
-          messages: arrayUnion({
-            sedndeId: currentUser.id,
-            message,
-            updatedAt: Date.now(),
-          })
-        })
+
         const userChatsRef = doc(db, "userChats", id)
         const userChatsSnapshot = await getDoc(userChatsRef)
         if (userChatsSnapshot.exists()) {
