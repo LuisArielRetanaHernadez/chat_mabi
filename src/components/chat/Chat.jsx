@@ -140,9 +140,12 @@ const Chat = () => {
       </div>
       <div className='bottom'>
         <div className='icons'>
-          <span className='icon'>
-            <FontAwesomeIcon icon={faFileImage} />
-          </span>
+          <label htmlFor='file'>
+            <span className='icon'>
+              <FontAwesomeIcon icon={faFileImage} />
+            </span>
+          </label>
+          <input id='file' type='file' accept='image/*' onChange={e => setImage({ file: e.target.files[0], url: URL.createObjectURL(e.target.files[0]) })} style={{ display: 'none' }} />
           <span className='icon'>
             <FontAwesomeIcon icon={faVideo} />
           </span>
