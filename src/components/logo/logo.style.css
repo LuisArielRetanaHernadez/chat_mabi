@@ -1,0 +1,28 @@
+.logo {
+  padding: 10px;
+  overflow: hidden;
+}
+
+.logo--paralle {
+  position: relative;
+}
+
+.logo--paralle::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+  position: absolute;
+}
+
+.logo--paralle::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: var(--blue-cobalto);
+  position: absolute;
+}
+
+.logo__text {
+  font-weight: 600;
+}
