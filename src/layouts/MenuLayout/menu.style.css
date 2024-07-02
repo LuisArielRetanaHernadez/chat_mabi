@@ -14,22 +14,29 @@
 }
 
 .menu__list {
-  list-style: none;
   margin-right: 20px;
-}
-
-.menu__item {
-  cursor: pointer;
+  list-style: none;
   position: relative;
 }
 
+.menu__item {
+  padding: 2px;
+  cursor: pointer;
+  display: inline-block;
+}
+
 /* subt menu */
+
+.menu__item:hover .menu__sub-list {
+  display: block;
+}
 
 .menu__sub-list {
   padding: 10px;
   border-radius: 5px;
   list-style: none;
   background-color: var(--blue-cobalto);
+  display: none;
   position: absolute;
-  right: 0%;
+  right: 0;
 }
