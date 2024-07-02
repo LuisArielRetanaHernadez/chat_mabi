@@ -11,6 +11,7 @@ import Login from "./login/Login";
 import MenuLayout from "./layouts/MenuLayout/Menu.layout";
 import ListChatLayout from "./layouts/ListChat.layout";
 import Chat from "./components/chat/Chat";
+import Auth from "./pages/Auth/Auth.page";
 
 const routers = createBrowserRouter([
   {
