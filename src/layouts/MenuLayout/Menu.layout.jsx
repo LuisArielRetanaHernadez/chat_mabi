@@ -1,8 +1,24 @@
+import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Outlet } from "react-router-dom";
+
 const MenuLayout = () => {
   return (
-    <div>
-      <h1>Menu</h1>
-    </div>
+    <section className="page">
+      <div className="menu">
+        <nav className="menu__nav">
+          <span>Logo</span>
+          <ul>
+            <li>
+              <FontAwesomeIcon icon={faEllipsisVertical} />
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <>
+        <Outlet />
+      </>
+    </section>
   )
 }
 
