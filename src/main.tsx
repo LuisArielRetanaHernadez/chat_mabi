@@ -6,7 +6,7 @@ import "./index.css";
 // router dom
 import { createRoot } from "react-dom/client";
 
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./login/Login";
 import MenuLayout from "./layouts/MenuLayout/Menu.layout";
 import ListChatLayout from "./layouts/ListChat.layout";
@@ -32,6 +32,6 @@ const routers = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={routers} />
   </React.StrictMode>
 );
