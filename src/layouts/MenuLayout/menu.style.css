@@ -1,0 +1,14 @@
+.menu {
+  padding: 5px;
+  box-shadow: 5px 0 5px var(--gray-pizarra);
+}
+
+.menu__logo {
+  margin-right: auto;
+}
+
+.menu__nav {
+  background-color: red;
+  display: flex;
+  gap: 5px;
+}
