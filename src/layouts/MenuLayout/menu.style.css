@@ -20,4 +20,16 @@
 
 .menu__item {
   cursor: pointer;
+  position: relative;
+}
+
+/* subt menu */
+
+.menu__sub-list {
+  padding: 10px;
+  border-radius: 5px;
+  list-style: none;
+  background-color: var(--blue-cobalto);
+  position: absolute;
+  right: 0%;
 }

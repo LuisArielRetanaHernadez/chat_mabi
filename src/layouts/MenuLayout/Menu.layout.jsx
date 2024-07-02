@@ -16,6 +16,9 @@ const MenuLayout = () => {
           <ul className="menu__list">
             <li className="menu__item">
               <FontAwesomeIcon icon={faEllipsisVertical} />
+              <ul className="menu__sub-list">
+                <li className="menu__item">Logout</li>
+              </ul>
             </li>
           </ul>
         </nav>
