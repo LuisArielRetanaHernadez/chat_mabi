@@ -16,6 +16,6 @@
 }
 
 body {
-  color: white;
-  background-color: black;
+  color: var(--black);
+  background-color: var(--white);
 }
