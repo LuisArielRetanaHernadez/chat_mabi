@@ -19,3 +19,11 @@ body {
   color: var(--black);
   background-color: var(--white);
 }
+
+.page {
+  width: 100dvw;
+  min-height: 100dvh;
+  color: var(--black);
+  font-family: "Inter", sans-serif;
+  background-color: var(--white);
+}
