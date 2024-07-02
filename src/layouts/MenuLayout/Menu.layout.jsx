@@ -9,9 +9,9 @@ const MenuLayout = () => {
     <section className="page">
       <div className="menu">
         <nav className="menu__nav">
-          <span>Logo</span>
-          <ul>
-            <li>
+          <span className="logo">Logo</span>
+          <ul className="menu__list">
+            <li className="menu__item">
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </li>
           </ul>
