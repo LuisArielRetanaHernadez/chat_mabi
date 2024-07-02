@@ -7,6 +7,25 @@ import "./index.css";
 import { createRoot } from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import Login from "./login/Login";
+
+const routers = createBrowserRouter([
+  {
+    path: "/",
+    element: <Menu />,
+    children: [
+      {
+        path: "/",
+        element: <ListLayout />,
+        children: [{ path: "/chat/id", element: <Chat /> }],
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <Auth />,
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
