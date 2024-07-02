@@ -8,15 +8,18 @@ import { createRoot } from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import Login from "./login/Login";
+import MenuLayout from "./layouts/MenuLayout/Menu.layout";
+import ListChatLayout from "./layouts/ListChat.layout";
+import Chat from "./components/chat/Chat";
 
 const routers = createBrowserRouter([
   {
     path: "/",
-    element: <Menu />,
+    element: <MenuLayout />,
     children: [
       {
         path: "/",
-        element: <ListLayout />,
+        element: <ListChatLayout />,
         children: [{ path: "/chat/id", element: <Chat /> }],
       },
     ],
