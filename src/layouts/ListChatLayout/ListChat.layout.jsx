@@ -6,11 +6,17 @@ const ListChatLayout = () => {
 
   return (
     <section className="layout-list-chat">
-      <div className="list-chat__search">
-        {/* input para buscar usuario */}
+      <div className="list-chat">
+        <div className="list-chat__search">
+          {/* input para buscar usuario */}
+        </div>
+
+        <div className="list-chat__list">
+          {/* lista de usuarios */}
+        </div>
       </div>
       <div>
-        {/* lista de usuarios */}
+
       </div>
       <>
         <Outlet />
