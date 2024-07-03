@@ -15,9 +15,6 @@ const ListChatLayout = () => {
           {/* lista de usuarios */}
         </div>
       </div>
-      <div>
-
-      </div>
       <>
         <Outlet />
       </>
