@@ -9,7 +9,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./login/Login";
 import MenuLayout from "./layouts/MenuLayout/Menu.layout";
-import ListChatLayout from "./layouts/ListChat.layout";
+import ListChatLayout from "./layouts/ListChatLayout/ListChat.layout";
 import Chat from "./components/chat/Chat";
 import Auth from "./pages/Auth/Auth.page";
 
