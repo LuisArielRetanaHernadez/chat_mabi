@@ -21,7 +21,6 @@ body {
 }
 
 .page {
-  width: 100dvw;
   min-height: 100dvh;
   color: var(--black);
   font-family: "Inter", sans-serif;
