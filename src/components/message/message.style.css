@@ -35,3 +35,14 @@
   font-size: 15px;
   line-height: 15px;
 }
+
+/* ..... bottom message ...... */
+
+.message__about {
+  display: flex;
+}
+
+.message__status {
+  margin-left: auto;
+  color: var(--gray-pizarra);
+}
