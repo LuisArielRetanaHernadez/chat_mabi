@@ -42,6 +42,8 @@
 
 .send-message__button-send {
   border: none;
+  font-size: 14px;
+  background-color: var(--blue-cobalto);
 }
 
 /* ..... icons more multiply */

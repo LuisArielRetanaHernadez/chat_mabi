@@ -1,7 +1,7 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './chat.style.css'
-import { faFaceLaughWink, faFileImport } from '@fortawesome/free-solid-svg-icons'
+import { faFaceLaughWink, faFileImport, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 const Chat = () => {
   return (
     <div className="chat">
@@ -21,7 +21,9 @@ const Chat = () => {
           </div>
           <div className='send-message__message'>
             <input className='send-message__input-message' />
-            <button className='button send-message__button-send'>Send</button>
+            <button className='button icon send-message__button-send'>
+              <FontAwesomeIcon icon={faPaperPlane} />
+            </button>
           </div>
         </div>
       </div>
