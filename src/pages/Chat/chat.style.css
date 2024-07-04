@@ -47,5 +47,14 @@
 /* ..... icons more multiply */
 
 .send-message__icons {
-  background-color: red;
+  display: flex;
+  gap: 5px;
+}
+
+.send-message__icon-emoji {
+  color: yellow;
+}
+
+.send-message__icon-file {
+  color: var(--white);
 }
