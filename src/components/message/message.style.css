@@ -1,0 +1,7 @@
+.message {
+  width: 70%;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 5px 0px 2px var(--gray-pizarra);
+  background-color: var(--white);
+}
