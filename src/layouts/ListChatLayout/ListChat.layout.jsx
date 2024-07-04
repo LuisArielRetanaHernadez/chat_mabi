@@ -7,14 +7,8 @@ const ListChatLayout = () => {
 
   return (
     <section className="layout-list-chat">
-      <div className="list-chat layout-list-chat__list-chat ">
-        <div className="list-chat__search">
-          {/* input para buscar usuario */}f
-        </div>
-
-        <div className="list-chat__list">
-          <ListChat />
-        </div>
+      <div className="layout-list-chat__list-chat ">
+        <ListChat />
       </div>
       <>
         <Outlet />

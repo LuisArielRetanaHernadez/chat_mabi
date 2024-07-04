@@ -1,8 +1,11 @@
 .layout-list-chat {
+  height: 100vh;
   background-color: #2d3250;
 }
 
 .layout-list-chat__list-chat {
   max-width: 320px;
+  height: 100%;
   background-color: var(--white);
+  overflow: auto;
 }
