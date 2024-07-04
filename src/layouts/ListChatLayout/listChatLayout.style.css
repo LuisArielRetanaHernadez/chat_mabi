@@ -1,10 +1,8 @@
 .layout-list-chat {
-  width: 100dvw;
-  width: 100vw;
-  background-color: red;
+  background-color: #2d3250;
 }
 
 .layout-list-chat__list-chat {
-  max-width: 250px;
+  max-width: 320px;
   background-color: var(--white);
 }
