@@ -42,7 +42,8 @@
   display: flex;
 }
 
-.message__status {
+.message__icon-status {
   margin-left: auto;
+  font-size: 19px;
   color: var(--gray-pizarra);
 }

@@ -18,7 +18,7 @@ const Message = () => {
       </div>
       <div className="message__about">
         <div className="message__time">1/11/111 - 1:11 PM</div>
-        <div className="message__status">
+        <div className="icon message__icon-status">
           <FontAwesomeIcon icon={faCircleCheck} />
         </div>
       </div>
