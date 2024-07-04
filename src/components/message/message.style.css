@@ -42,6 +42,11 @@
   display: flex;
 }
 
+.message__time {
+  color: var(--gray-pizarra);
+  background: transparent;
+}
+
 .message__icon-status {
   margin-left: auto;
   font-size: 19px;
