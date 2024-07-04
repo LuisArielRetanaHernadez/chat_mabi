@@ -1,7 +1,7 @@
 .chat {
   width: 100%;
   height: 100%;
-  background-color: darksalmon;
+  background-color: var(--alabaster);
   position: relative;
   overflow-y: auto;
 }
@@ -9,11 +9,11 @@
 .chat__send-message {
   width: 100%;
   margin: auto;
-  background-color: red;
+  background-color: var(--purple);
   position: sticky;
   top: 100%;
 }
 
 .send-message {
-  background-color: blue;
+  background-color: transparent;
 }
