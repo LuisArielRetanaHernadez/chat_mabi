@@ -67,18 +67,25 @@
 
 .list-chat {
   width: 100%;
-  background-color: pink;
+  background-color: var(--white);
 }
 
 .list-chat__list {
-  background-color: var(--purple);
   display: flex;
   column-gap: 5px;
 }
 
+.list-chat__item {
+  width: 100%;
+}
+
 .list-chat__user {
+  width: 100%;
   padding: 5px;
-  display: inline-block;
+  background-color: var(--blue-cobalto);
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .list-chat__content-image {
