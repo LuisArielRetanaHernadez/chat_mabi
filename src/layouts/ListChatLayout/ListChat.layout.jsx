@@ -10,9 +10,9 @@ const ListChatLayout = () => {
       <div className="layout-list-chat__list-chat ">
         <ListChat />
       </div>
-      <>
+      <div className="layout-list-chat__box">
         <Outlet />
-      </>
+      </div>
     </section>
   )
 }

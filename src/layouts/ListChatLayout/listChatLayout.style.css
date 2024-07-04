@@ -1,6 +1,7 @@
 .layout-list-chat {
   height: calc(100vh - 50px);
   background-color: #2d3250;
+  display: flex;
 }
 
 .layout-list-chat__list-chat {
@@ -8,6 +9,11 @@
   height: 100%;
   background-color: var(--white);
   overflow: auto;
+}
+
+.layout-list-chat__box {
+  background-color: red;
+  flex-grow: 1;
 }
 
 .layout-list-chat__list-chat::-webkit-scrollbar {
