@@ -11,7 +11,9 @@ const Message = () => {
       <div className='message__box'>
         <div className="message__username">Username</div>
         <div className='message__message'>
-          Prueba del componente mensaje
+          Prueba del componente mensajeaaaaaaaaaaaaaaaaaaa
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          aaaaaaaaaaaaaaaa
         </div>
       </div>
       <div className="message__about">
