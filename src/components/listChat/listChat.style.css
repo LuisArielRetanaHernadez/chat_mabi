@@ -74,6 +74,13 @@
   text-decoration: none;
 }
 
+.list-chat__search {
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
 .list-chat__list {
   display: flex;
   flex-direction: column;
