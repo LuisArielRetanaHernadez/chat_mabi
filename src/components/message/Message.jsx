@@ -8,9 +8,11 @@ const Message = () => {
       <div className="message__avatar">
         <img className='message__avatar-image' src='https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
       </div>
-      <div className="message__message">
+      <div className='message__box'>
         <div className="message__username">Username</div>
-        <div className="message__text">Prueba del componente Message del chat</div>
+        <div className='message__message'>
+          Prueba del componente mensaje
+        </div>
       </div>
       <div className="message__about">
         <div className="message__time">1/11/111 - 1:11 PM</div>
