@@ -92,20 +92,26 @@
   align-items: center;
 }
 
-.list-chat__user--online {
+.list-chat__user--online,
+.list-chat__user--offline {
   position: relative;
 }
 
+.list-chat__user--offline::before,
 .list-chat__user--online::before {
   content: "";
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  box-shadow: 0 0 0px 3px #80c4e9;
-  background-color: var(--blue-cobalto);
+  background-color: var(--gray-pizarra);
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.list-chat__user--online::before {
+  box-shadow: 0 0 0px 3px #80c4e9;
+  background-color: var(--blue-cobalto);
 }
 
 .list-chat__content-image {
