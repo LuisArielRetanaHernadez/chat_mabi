@@ -135,14 +135,14 @@
 }
 
 .list-chat__username {
-  color: var(--black);
+  color: var(--blue-cobalto);
   font-size: 19px;
   font-weight: 600;
 }
 
 .list-chat__last-message {
   color: #222831;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.7;
   text-overflow: ellipsis;
   white-space: nowrap;
