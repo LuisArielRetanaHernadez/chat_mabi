@@ -70,6 +70,10 @@
   background-color: var(--white);
 }
 
+.list-chat a {
+  text-decoration: none;
+}
+
 .list-chat__list {
   display: flex;
   column-gap: 5px;
@@ -82,7 +86,7 @@
 .list-chat__user {
   width: 100%;
   padding: 5px;
-  background-color: var(--blue-cobalto);
+  border-bottom: 2px solid var(--blue-cobalto);
   display: flex;
   gap: 10px;
   align-items: center;
@@ -99,4 +103,20 @@
   height: 100%;
   border-radius: inherit;
   object-fit: cover;
+}
+
+.list-chat__about-user {
+  color: var(--white);
+}
+
+.list-chat__username {
+  color: var(--black);
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.list-chat__last-message {
+  color: #222831;
+  font-size: 15px;
+  line-height: 1.7;
 }
