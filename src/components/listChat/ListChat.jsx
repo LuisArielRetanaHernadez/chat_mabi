@@ -7,6 +7,7 @@ import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore"
 import { db } from "../../lib/firebase"
 import { useChatStore } from "../../lib/useChatStore"
 import { Link } from "react-router-dom"
+import Search from "../search/Search"
 
 const ListChat = () => {
   const [chats, setChats] = useState([])
@@ -112,6 +113,7 @@ const ListChat = () => {
     <div className="list-chat">
       <div className="list-chat__search">
         {/* search bar */}
+        <Search />
       </div>
       <ul className="list-chat__list">
         <li className="list-chat__item">
