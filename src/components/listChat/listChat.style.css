@@ -1,4 +1,4 @@
-.chatList {
+/* .chatList {
   flex: 1;
   overflow-y: auto;
   .search {
@@ -63,4 +63,9 @@
       }
     }
   }
+} */
+
+.list-chat {
+  width: 100%;
+  background-color: pink;
 }
