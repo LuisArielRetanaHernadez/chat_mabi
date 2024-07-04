@@ -2,11 +2,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './chat.style.css'
 import { faFaceLaughWink, faFileImport, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import Message from '../../components/message/Message'
 const Chat = () => {
   return (
     <div className="chat">
       <div className="chat__messages">
         {/* box messages */}
+        <Message />
       </div>
       <div className="chat__send-message">
 
