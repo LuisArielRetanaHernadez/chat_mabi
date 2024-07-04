@@ -1,6 +1,4 @@
-// font-awesome
-import { faCirclePlus, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 
 import "./listChat.style.css"
 import { useEffect, useState } from 'react'
@@ -8,19 +6,21 @@ import { useStore } from "../../lib/userStorage"
 import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore"
 import { db } from "../../lib/firebase"
 import { useChatStore } from "../../lib/useChatStore"
-import AddUser from "../addUser/AddUser"
 import { Link } from "react-router-dom"
 
 const ListChat = () => {
   const [chats, setChats] = useState([])
-  const [addMode, setAddMode] = useState(false)
 
   const { currentUser } = useStore()
   const { changeChat } = useChatStore()
 
   useEffect(() => {
+    console.log('currentUser ', currentUser)
 
-    const unSub = onSnapshot(doc(db, "userChats", currentUser.id), async (res) => {
+    if (!currentUser) return
+
+    // get chats
+    const unSub = onSnapshot(doc(db, "userChats", currentUser?.id), async (res) => {
 
       const itemsChat = res.data().chats
       console.log('itemsChat ', itemsChat)
@@ -52,7 +52,7 @@ const ListChat = () => {
     return () => {
       unSub();
     }
-  }, [currentUser.id])
+  }, [currentUser?.id])
 
   const handleSelect = async (chat) => {
     console.log('chat ', chat)
