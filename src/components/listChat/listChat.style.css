@@ -94,7 +94,7 @@
 .list-chat__user {
   width: 100%;
   padding: 5px;
-  border-bottom: 2px solid var(--blue-cobalto);
+  border-bottom: 2px solid var(--silver-chalice);
   display: flex;
   gap: 10px;
   align-items: center;
