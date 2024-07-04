@@ -115,7 +115,7 @@ const ListChat = () => {
       </div>
       <ul className="list-chat__list">
         <li className="list-chat__item">
-          <Link to="/chat/1" className="list-chat__user">
+          <Link to="/chat/1" className="list-chat__user list-chat__user--online">
             <figure className="list-chat__content-image">
               <img className="list-chat__image" src="https://images.pexels.com/photos/1226302/pexels-photo-1226302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
             </figure>
