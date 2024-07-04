@@ -76,7 +76,8 @@
 
 .list-chat__list {
   display: flex;
-  column-gap: 5px;
+  flex-direction: column;
+  row-gap: 8px;
 }
 
 .list-chat__item {
