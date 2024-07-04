@@ -37,3 +37,13 @@ body {
   border-radius: 15px;
   background-color: var(--blue-cobalto);
 }
+
+/* icon */
+
+.icon {
+  font-size: 22px;
+  border: none;
+  color: var(--white);
+  background-color: transparent;
+  outline: none;
+}
