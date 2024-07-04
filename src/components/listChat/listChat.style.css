@@ -69,3 +69,14 @@
   width: 100%;
   background-color: pink;
 }
+
+.list-chat__list {
+  background-color: var(--purple);
+  display: flex;
+  column-gap: 5px;
+}
+
+.list-chat__user {
+  padding: 5px;
+  display: inline-block;
+}
