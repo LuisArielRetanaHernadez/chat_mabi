@@ -128,6 +128,8 @@
 }
 
 .list-chat__about-user {
+  width: calc(100% - 70px);
+  flex-flow: 5;
   color: var(--white);
 }
 
@@ -141,4 +143,7 @@
   color: #222831;
   font-size: 15px;
   line-height: 1.7;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }

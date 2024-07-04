@@ -121,7 +121,7 @@ const ListChat = () => {
             </figure>
             <div className="list-chat__about-user">
               <span className="list-chat__username">Name User</span>
-              <p className="list-chat__last-message">Message</p>
+              <p className="list-chat__last-message">Messagessssssssssssssss</p>
             </div>
           </Link>
         </li>
