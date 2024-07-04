@@ -132,7 +132,84 @@ const ListChat = () => {
             </figure>
             <div className="list-chat__about-user">
               <span className="list-chat__username">Name User</span>
-              <p className="list-chat__last-message">Messagessssssssssssssss</p>
+              <p className="list-chat__last-message">Messagessssssssssssssssss</p>
+            </div>
+          </Link>
+        </li>
+        <li className="list-chat__item">
+          <Link to="/chat/1" className="list-chat__user list-chat__user--online">
+            <figure className="list-chat__content-image">
+              <img className="list-chat__image" src="https://images.pexels.com/photos/1226302/pexels-photo-1226302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            </figure>
+            <div className="list-chat__about-user">
+              <span className="list-chat__username">Name User</span>
+              <p className="list-chat__last-message">Messagessssssssssssssssss</p>
+            </div>
+          </Link>
+        </li>
+        <li className="list-chat__item">
+          <Link to="/chat/1" className="list-chat__user list-chat__user--online">
+            <figure className="list-chat__content-image">
+              <img className="list-chat__image" src="https://images.pexels.com/photos/1226302/pexels-photo-1226302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            </figure>
+            <div className="list-chat__about-user">
+              <span className="list-chat__username">Name User</span>
+              <p className="list-chat__last-message">Messagessssssssssssssssss</p>
+            </div>
+          </Link>
+        </li>
+        <li className="list-chat__item">
+          <Link to="/chat/1" className="list-chat__user list-chat__user--online">
+            <figure className="list-chat__content-image">
+              <img className="list-chat__image" src="https://images.pexels.com/photos/1226302/pexels-photo-1226302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            </figure>
+            <div className="list-chat__about-user">
+              <span className="list-chat__username">Name User</span>
+              <p className="list-chat__last-message">Messagessssssssssssssssss</p>
+            </div>
+          </Link>
+        </li>
+        <li className="list-chat__item">
+          <Link to="/chat/1" className="list-chat__user list-chat__user--online">
+            <figure className="list-chat__content-image">
+              <img className="list-chat__image" src="https://images.pexels.com/photos/1226302/pexels-photo-1226302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            </figure>
+            <div className="list-chat__about-user">
+              <span className="list-chat__username">Name User</span>
+              <p className="list-chat__last-message">Messagessssssssssssssssss</p>
+            </div>
+          </Link>
+        </li>
+        <li className="list-chat__item">
+          <Link to="/chat/1" className="list-chat__user list-chat__user--online">
+            <figure className="list-chat__content-image">
+              <img className="list-chat__image" src="https://images.pexels.com/photos/1226302/pexels-photo-1226302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            </figure>
+            <div className="list-chat__about-user">
+              <span className="list-chat__username">Name User</span>
+              <p className="list-chat__last-message">Messagessssssssssssssssss</p>
+            </div>
+          </Link>
+        </li>
+        <li className="list-chat__item">
+          <Link to="/chat/1" className="list-chat__user list-chat__user--online">
+            <figure className="list-chat__content-image">
+              <img className="list-chat__image" src="https://images.pexels.com/photos/1226302/pexels-photo-1226302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            </figure>
+            <div className="list-chat__about-user">
+              <span className="list-chat__username">Name User</span>
+              <p className="list-chat__last-message">Messagessssssssssssssssss</p>
+            </div>
+          </Link>
+        </li>
+        <li className="list-chat__item">
+          <Link to="/chat/1" className="list-chat__user list-chat__user--online">
+            <figure className="list-chat__content-image">
+              <img className="list-chat__image" src="https://images.pexels.com/photos/1226302/pexels-photo-1226302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            </figure>
+            <div className="list-chat__about-user">
+              <span className="list-chat__username">Name User</span>
+              <p className="list-chat__last-message">Messagessssssssssssssssss</p>
             </div>
           </Link>
         </li>
