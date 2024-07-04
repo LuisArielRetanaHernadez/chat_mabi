@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom"
 
 import './listChatLayout.style.css'
+import ListChat from "../../components/listChat/ListChat"
 
 const ListChatLayout = () => {
 
@@ -12,7 +13,7 @@ const ListChatLayout = () => {
         </div>
 
         <div className="list-chat__list">
-          {/* lista de usuarios */}
+          <ListChat />
         </div>
       </div>
       <>
