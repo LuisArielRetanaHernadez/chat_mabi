@@ -10,8 +10,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./login/Login";
 import MenuLayout from "./layouts/MenuLayout/Menu.layout";
 import ListChatLayout from "./layouts/ListChatLayout/ListChat.layout";
-import Chat from "./components/chat/Chat";
 import Auth from "./pages/Auth/Auth.page";
+import Chat from "./pages/Chat/Chat.page";
 
 const routers = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ const routers = createBrowserRouter([
       {
         path: "/",
         element: <ListChatLayout />,
-        children: [{ path: "/chat/id", element: <Chat /> }],
+        children: [{ path: "/chat/:id", element: <Chat /> }],
       },
     ],
   },
