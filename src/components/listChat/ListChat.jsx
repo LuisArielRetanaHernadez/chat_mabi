@@ -9,6 +9,7 @@ import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore"
 import { db } from "../../lib/firebase"
 import { useChatStore } from "../../lib/useChatStore"
 import AddUser from "../addUser/AddUser"
+import { Link } from "react-router-dom"
 
 const ListChat = () => {
   const [chats, setChats] = useState([])
@@ -84,28 +85,47 @@ const ListChat = () => {
     }
   }
   return (
-    <div className="chatList">
-      <div className="search">
-        <div className="searchBar">
-          <span className="icon">
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </span>
-          <input type="text" />
-        </div>
-        <span className="icon add" onClick={() => setAddMode(prev => !prev)}>
-          <FontAwesomeIcon icon={faCirclePlus} />
-        </span>
+    // <div className="chatList">
+    //   <div className="search">
+    //     <div className="searchBar">
+    //       <span className="icon">
+    //         <FontAwesomeIcon icon={faMagnifyingGlass} />
+    //       </span>
+    //       <input type="text" />
+    //     </div>
+    //     <span className="icon add" onClick={() => setAddMode(prev => !prev)}>
+    //       <FontAwesomeIcon icon={faCirclePlus} />
+    //     </span>
+    //   </div>
+    //   {chats.map((chat) => (
+    //     <div className="item" key={chat.chatId} onClick={() => handleSelect(chat)}>
+    //       <img src={chat.user.avatar} />
+    //       <div className="texts">
+    //         <span>{chat.user.username}</span>
+    //         <p>{chat.lastMessage}</p>
+    //       </div>
+    //     </div> || <span>Sin chats</span>
+    //   ))}
+    //   {addMode && <AddUser />}
+    // </div>
+
+    <div className="list-chat">
+      <div className="list-chat__search">
+        {/* search bar */}
       </div>
-      {chats.map((chat) => (
-        <div className="item" key={chat.chatId} onClick={() => handleSelect(chat)}>
-          <img src={chat.user.avatar} />
-          <div className="texts">
-            <span>{chat.user.username}</span>
-            <p>{chat.lastMessage}</p>
-          </div>
-        </div> || <span>Sin chats</span>
-      ))}
-      {addMode && <AddUser />}
+      <ul className="list-chat__list">
+        <li className="list-chat__item">
+          <Link to="/chat/1" className="list-chat__user">
+            <figure className="list-chat__content-image">
+              <img className="list-chat__image" />
+            </figure>
+            <div className="list-chat__about-user">
+              <span className="list-chat__username">Name User</span>
+              <p className="list-chat__last-message">Message</p>
+            </div>
+          </Link>
+        </li>
+      </ul>
     </div>
   )
 }
