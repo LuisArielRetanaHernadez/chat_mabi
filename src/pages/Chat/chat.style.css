@@ -7,13 +7,14 @@
 }
 
 .chat__send-message {
-  width: 100%;
+  width: 60%;
   margin: auto;
   background-color: var(--purple);
   position: sticky;
-  top: 100%;
+  top: 88%;
 }
 
 .send-message {
+  width: 100%;
   background-color: transparent;
 }
