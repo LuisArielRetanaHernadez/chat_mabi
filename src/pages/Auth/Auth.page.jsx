@@ -3,9 +3,12 @@ import './auth.style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useEffect, useRef, useState } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../../lib/firebase'
+import { auth, db } from '../../lib/firebase'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { setDoc } from 'firebase/firestore'
+import { doc } from 'firebase/firestore'
 
 const Auth = () => {
   const [modeAuth, setModeAuth] = useState('login')
@@ -64,6 +67,34 @@ const Auth = () => {
       }
     }
   }
+
+  const handleRegister = async (e) => {
+    e.preventDefault()
+    if (dataForm.password !== dataForm.passwordConfirm) return toast.error('las contraseñas no coinciden')
+    try {
+      const res = await createUserWithEmailAndPassword(auth, dataForm.email, dataForm.password)
+      const user = res.user
+      await setDoc(doc(db, 'users', user.uid), {
+        ...dataForm,
+        id: user.uid,
+        blocked: [],
+        photoURL: imageProfile.url
+      })
+
+      await setDoc(doc(db, 'userChats', user.uid), {
+        chats: []
+      })
+      toast.success('usuario creado correctamente')
+    } catch (error) {
+      const stringError = JSON.stringify(error)
+      const errorObject = JSON.parse(stringError)
+
+      if (errorObject.code === 'auth/email-already-in-use') {
+        toast.error('Usuario ya registrado')
+      }
+    }
+  }
+
   return (
     <section className="auth">
       <div className="auth__box">
@@ -82,7 +113,7 @@ const Auth = () => {
         {/* -------- register --------- */}
         <div className="auth__register auth__section" ref={registerRef}>
           <h2 className="auth__title">Unete a chatear!</h2>
-          <form className="auth__form">
+          <form className="auth__form" onSubmit={handleRegister}>
             <div className="auth__form-field auth__form-field--image">
               <img className="auth__form-image" src={imageProfile.url} alt="" />
               <label htmlFor="image-profile" className="auth__label auth__label--image">
