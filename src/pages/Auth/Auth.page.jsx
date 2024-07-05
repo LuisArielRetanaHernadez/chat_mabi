@@ -10,10 +10,10 @@ const Auth = () => {
           <h2 className="auth__title">Entra a chatear!</h2>
           <form className="auth__form">
             <div className="auth__form-field">
-              <input type="email" placeholder='email' />
+              <input className="auth__form-input" type="email" placeholder='email' />
             </div>
             <div className="auth__form-field">
-              <input type="password" placeholder='pasword' />
+              <input className="auth__form-input" type="password" placeholder='pasword' />
             </div>
             <button className="button auth__button-send">Entrar</button>
           </form>
