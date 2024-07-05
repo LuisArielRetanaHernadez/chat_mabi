@@ -38,6 +38,7 @@ const Auth = () => {
           </form>
         </div>
         <div className="auth__register auth__section" ref={registerRef}>
+          <h2 className="auth__title">Unete a chatear!</h2>
           <form className="auth__form">
             <div className="auth__form-field auth__form-field--image">
               <img className="auth__form-image" src="" alt="" />

@@ -46,6 +46,17 @@
   position: relative;
 }
 
+/* ----> register */
+.auth__register {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth__register .auth__title {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* ..... auth form .... */
 
 .auth__form {
