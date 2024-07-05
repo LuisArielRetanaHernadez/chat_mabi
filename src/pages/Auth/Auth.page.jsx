@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { setDoc } from 'firebase/firestore'
 import { doc } from 'firebase/firestore'
+import uploadFile from '../../lib/uploadFile'
 
 const Auth = () => {
   const [modeAuth, setModeAuth] = useState('login')
@@ -74,23 +75,42 @@ const Auth = () => {
     try {
       const res = await createUserWithEmailAndPassword(auth, dataForm.email, dataForm.password)
       const user = res.user
+      const urlImageUpload = await uploadFile(imageProfile.file, `images/profiles/${user.uid}/photos/profile_pictures`)
       await setDoc(doc(db, 'users', user.uid), {
         ...dataForm,
         id: user.uid,
         blocked: [],
-        photoURL: imageProfile.url
+        photoURL: urlImageUpload
       })
 
       await setDoc(doc(db, 'userChats', user.uid), {
         chats: []
       })
-      toast.success('usuario creado correctamente')
+      toast.success('usuario creado correctamente', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      })
     } catch (error) {
       const stringError = JSON.stringify(error)
       const errorObject = JSON.parse(stringError)
 
       if (errorObject.code === 'auth/email-already-in-use') {
-        toast.error('Usuario ya registrado')
+        toast.error('Usuario ya registrado', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
       }
     }
   }
