@@ -4,7 +4,7 @@ const Auth = () => {
   return (
     <section className="auth">
       <div className="auth__box">
-        <div className="auth__login">
+        <div className="auth__login auth__section">
           <form className="auth__form">
             <div className="auth__form-field">
               <input type="email" placeholder='email' />
@@ -15,7 +15,7 @@ const Auth = () => {
             <button className="button auth__button-send">Entrar</button>
           </form>
         </div>
-        <div className="auth__register">
+        <div className="auth__register auth__section">
           <form className="auth__form">
             <div className="auth__form-field">
               <img className="auth__form-image" src="" alt="" />
@@ -38,7 +38,7 @@ const Auth = () => {
             </div>
             <button className="button auth__button-send">Unirse</button>
           </form>
-        </div>
+        </div>aa
       </div>
     </section>
   )

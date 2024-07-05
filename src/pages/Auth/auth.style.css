@@ -14,3 +14,11 @@
   display: flex;
   overflow: hidden;
 }
+
+.auth__section {
+  min-width: 100%;
+}
+
+.auth__login {
+  background-color: blue;
+}
