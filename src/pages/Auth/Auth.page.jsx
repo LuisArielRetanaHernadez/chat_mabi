@@ -1,12 +1,28 @@
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import './auth.style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useEffect, useRef, useState } from 'react'
 
 const Auth = () => {
+  const [modeAuth, setModeAuth] = useState('login')
+  const loginRef = useRef(null)
+  const registerRef = useRef(null)
+
+  useEffect(() => {
+    if (loginRef.current === null || registerRef.current === null) return
+    console.log(modeAuth)
+    if (modeAuth === 'login') {
+      loginRef.current.style.right = '0%'
+      registerRef.current.style.right = '0%'
+    } else {
+      loginRef.current.style.right = '100%'
+      registerRef.current.style.right = '100%'
+    }
+  }, [modeAuth])
   return (
     <section className="auth">
       <div className="auth__box">
-        <div className="auth__login auth__section">
+        <div className="auth__login auth__section" ref={loginRef}>
           <h2 className="auth__title">Entra a chatear!</h2>
           <form className="auth__form">
             <div className="auth__form-field">
@@ -18,7 +34,7 @@ const Auth = () => {
             <button className="button auth__button-send">Entrar</button>
           </form>
         </div>
-        <div className="auth__register auth__section">
+        <div className="auth__register auth__section" ref={registerRef}>
           <form className="auth__form">
             <div className="auth__form-field">
               <img className="auth__form-image" src="" alt="" />
@@ -42,7 +58,7 @@ const Auth = () => {
             <button className="button auth__button-send">Unirse</button>
           </form>
         </div>
-        <span className='button auth__button-next auth__button-next--register'>
+        <span className='button auth__button-next' onClick={() => setModeAuth(prev => prev === 'login' ? 'register' : 'login')}>
           <FontAwesomeIcon icon={faArrowLeft} />
         </span>
       </div>
