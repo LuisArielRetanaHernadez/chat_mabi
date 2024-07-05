@@ -9,6 +9,7 @@ const Auth = () => {
     username: '',
     email: '',
     password: '',
+    passwordConfirm: '',
     image: ''
   })
   const [imageProfile, setImageProfile] = useState({
@@ -41,14 +42,15 @@ const Auth = () => {
           <h2 className="auth__title">Entra a chatear!</h2>
           <form className="auth__form">
             <div className="auth__form-field">
-              <input className="auth__form-input" type="email" placeholder='email' />
+              <input className="auth__form-input" type="email" name="email" placeholder='email' onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
             </div>
             <div className="auth__form-field">
-              <input className="auth__form-input" type="password" placeholder='pasword' />
+              <input className="auth__form-input" type="password" name="password" placeholder='pasword' onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
             </div>
             <button className="button auth__button-send">Entrar</button>
           </form>
         </div>
+        {/* -------- register --------- */}
         <div className="auth__register auth__section" ref={registerRef}>
           <h2 className="auth__title">Unete a chatear!</h2>
           <form className="auth__form">
@@ -60,16 +62,16 @@ const Auth = () => {
               <input className="auth__input-image" type="file" style={{ display: 'none' }} id="image-profile" />
             </div>
             <div className="auth__form-field">
-              <input className="auth__form-input" placeholder='Username' />
+              <input className="auth__form-input" placeholder='Username' name="username" onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
             </div>
             <div className="auth__form-field">
-              <input className="auth__form-input" type="email" placeholder='email' />
+              <input className="auth__form-input" type="email" name="email" placeholder='email' onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
             </div>
             <div className="auth__form-field">
-              <input className="auth__form-input" type="password" placeholder='pasword' />
+              <input className="auth__form-input" type="password" name="password" placeholder='pasword' onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
             </div>
             <div className="auth__form-field">
-              <input className="auth__form-input" type="password" placeholder='pasword confirm' />
+              <input className="auth__form-input" type="password" name="passwordConfirm" placeholder='pasword confirm' onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
             </div>
             <button className="button auth__button-send">Unirse</button>
           </form>
