@@ -1,4 +1,4 @@
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import './auth.style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useEffect, useRef, useState } from 'react'
@@ -7,16 +7,19 @@ const Auth = () => {
   const [modeAuth, setModeAuth] = useState('login')
   const loginRef = useRef(null)
   const registerRef = useRef(null)
+  const buttonNextRef = useRef(null)
 
   useEffect(() => {
     if (loginRef.current === null || registerRef.current === null) return
-    console.log(modeAuth)
     if (modeAuth === 'login') {
       loginRef.current.style.right = '0%'
       registerRef.current.style.right = '0%'
+
+      buttonNextRef.current.classList.remove('auth__button-next--register')
     } else {
       loginRef.current.style.right = '100%'
       registerRef.current.style.right = '100%'
+      buttonNextRef.current.classList.add('auth__button-next--register')
     }
   }, [modeAuth])
   return (
@@ -58,8 +61,8 @@ const Auth = () => {
             <button className="button auth__button-send">Unirse</button>
           </form>
         </div>
-        <span className='button auth__button-next' onClick={() => setModeAuth(prev => prev === 'login' ? 'register' : 'login')}>
-          <FontAwesomeIcon icon={faArrowLeft} />
+        <span className='button auth__button-next' onClick={() => setModeAuth(prev => prev === 'login' ? 'register' : 'login')} ref={buttonNextRef}>
+          {modeAuth === 'login' ? <FontAwesomeIcon icon={faArrowLeft} /> : <FontAwesomeIcon icon={faArrowRight} />}
         </span>
       </div>
     </section>
