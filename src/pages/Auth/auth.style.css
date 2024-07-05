@@ -4,3 +4,13 @@
   background-color: red;
   display: flex;
 }
+
+/* .... box ... */
+
+.auth__box {
+  width: 450px;
+  margin: auto;
+  background-color: #ff6500;
+  display: flex;
+  overflow: hidden;
+}
