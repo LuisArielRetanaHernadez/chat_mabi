@@ -5,6 +5,18 @@ import { useEffect, useRef, useState } from 'react'
 
 const Auth = () => {
   const [modeAuth, setModeAuth] = useState('login')
+  const [dataForm, setDataForm] = useState({
+    username: '',
+    email: '',
+    password: '',
+    image: ''
+  })
+  const [imageProfile, setImageProfile] = useState({
+    file: '',
+    url: ''
+  })
+
+
   const loginRef = useRef(null)
   const registerRef = useRef(null)
   const buttonNextRef = useRef(null)
