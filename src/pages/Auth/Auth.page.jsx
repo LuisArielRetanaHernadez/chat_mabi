@@ -17,9 +17,6 @@ const Auth = () => {
             </div>
             <button className="button auth__button-send">Entrar</button>
           </form>
-          <span>
-            <FontAwesomeIcon icon={faArrowLeft} />
-          </span>
         </div>
         <div className="auth__register auth__section">
           <form className="auth__form">
@@ -44,7 +41,10 @@ const Auth = () => {
             </div>
             <button className="button auth__button-send">Unirse</button>
           </form>
-        </div>aa
+        </div>
+        <span className='button auth__button-next'>
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </span>
       </div>
     </section>
   )
