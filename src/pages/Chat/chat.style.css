@@ -1,18 +1,23 @@
 .chat {
   width: 100%;
   height: 100%;
-  background-color: var(--alabaster);
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
   position: relative;
-  overflow-y: auto;
+}
+
+.chat__messages {
+  overflow: auto;
 }
 
 .chat__send-message {
   width: 60%;
+  height: max-content;
   margin: auto;
+  margin-bottom: 10px;
   border-radius: 15px;
   background-color: var(--purple);
-  position: sticky;
-  top: 88%;
 }
 
 .send-message {
