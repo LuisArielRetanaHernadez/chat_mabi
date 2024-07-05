@@ -55,11 +55,11 @@ const Auth = () => {
           <h2 className="auth__title">Unete a chatear!</h2>
           <form className="auth__form">
             <div className="auth__form-field auth__form-field--image">
-              <img className="auth__form-image" src="" alt="" />
+              <img className="auth__form-image" src={imageProfile.url} alt="" />
               <label htmlFor="image-profile" className="auth__label auth__label--image">
                 Imagen
               </label>
-              <input className="auth__input-image" type="file" style={{ display: 'none' }} id="image-profile" />
+              <input id="image-profile" className="auth__input-image" style={{ display: 'none' }} type="file" name='file' onChange={e => setImageProfile({ file: e.target.files[0], url: URL.createObjectURL(e.target.files[0]) })} />
             </div>
             <div className="auth__form-field">
               <input className="auth__form-input" placeholder='Username' name="username" onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
