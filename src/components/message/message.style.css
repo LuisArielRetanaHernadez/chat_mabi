@@ -64,6 +64,10 @@
   cursor: initial;
 }
 
+.message__icon-status--read {
+  color: var(--blue-cobalto);
+}
+
 /* .... style of menssage if message is user current ... */
 
 .message--author .message__box {
