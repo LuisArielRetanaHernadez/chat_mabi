@@ -20,6 +20,12 @@
   min-width: 100%;
 }
 
+.auth__title {
+  margin-bottom: 30px;
+  color: var(--blue-cobalto);
+  font-size: 35px;
+}
+
 /* ..... login .... */
 .auth__login {
   background-color: var(--white);
