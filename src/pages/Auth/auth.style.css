@@ -49,6 +49,16 @@
   outline: none;
 }
 
+.auth__button-send {
+  width: 60%;
+  padding: 10px 12px;
+  margin-top: 30px;
+  font-size: 17px;
+  background-color: var(--purple);
+  border: none;
+  outline: none;
+}
+
 /* ..... login .... */
 .auth__login {
   background-color: var(--white);
