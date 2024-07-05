@@ -60,6 +60,42 @@
   margin-bottom: 10px;
 }
 
+.auth__label {
+  color: var(--white);
+  font-size: 22px;
+}
+
+.auth__form-field--image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth__form-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid var(--purple);
+  object-fit: cover;
+  object-position: center center;
+}
+
+.auth__label--image {
+  padding: 8px;
+  color: #f97300;
+  font-size: 16px;
+  border: 1px solid #f97300;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.auth__label--image:hover {
+  color: var(--white);
+  background-color: #f97300;
+}
+
 .auth__form-input {
   width: 100%;
   padding: 10px;

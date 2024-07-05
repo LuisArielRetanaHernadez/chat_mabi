@@ -39,9 +39,9 @@ const Auth = () => {
         </div>
         <div className="auth__register auth__section" ref={registerRef}>
           <form className="auth__form">
-            <div className="auth__form-field">
+            <div className="auth__form-field auth__form-field--image">
               <img className="auth__form-image" src="" alt="" />
-              <label htmlFor="image-profile" className="auth__label-image">
+              <label htmlFor="image-profile" className="auth__label auth__label--image">
                 Imagen
               </label>
               <input className="auth__input-image" type="file" style={{ display: 'none' }} id="image-profile" />
