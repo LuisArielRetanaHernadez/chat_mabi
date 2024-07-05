@@ -1,40 +1,42 @@
+import './auth.style.css'
+
 const Auth = () => {
   return (
-    <section>
-      <div>
-        <div>
-          <form>
-            <div>
+    <section className="auth">
+      <div className="auth__box">
+        <div className="auth__login">
+          <form className="auth__form">
+            <div className="auth__form-field">
               <input type="email" placeholder='email' />
             </div>
-            <div>
+            <div className="auth__form-field">
               <input type="password" placeholder='pasword' />
             </div>
-            <button>Entrar</button>
+            <button className="button auth__button-send">Entrar</button>
           </form>
         </div>
-        <div>
-          <form>
-            <div>
-              <img src="" alt="" />
-              <label htmlFor="image-profile">
+        <div className="auth__register">
+          <form className="auth__form">
+            <div className="auth__form-field">
+              <img className="auth__form-image" src="" alt="" />
+              <label htmlFor="image-profile" className="auth__label-image">
                 Imagen
               </label>
-              <input type="file" style={{ display: 'none' }} id="image-profile" />
+              <input className="auth__input-image" type="file" style={{ display: 'none' }} id="image-profile" />
             </div>
-            <div>
-              <input placeholder='Username' />
+            <div className="auth__form-field">
+              <input className="auth__form-input" placeholder='Username' />
             </div>
-            <div>
-              <input type="email" placeholder='email' />
+            <div className="auth__form-field">
+              <input className="auth__form-input" type="email" placeholder='email' />
             </div>
-            <div>
-              <input type="password" placeholder='pasword' />
+            <div className="auth__form-field">
+              <input className="auth__form-input" type="password" placeholder='pasword' />
             </div>
-            <div>
-              <input type="password" placeholder='pasword confirm' />
+            <div className="auth__form-field">
+              <input className="auth__form-input" type="password" placeholder='pasword confirm' />
             </div>
-            <button>Unirse</button>
+            <button className="button auth__button-send">Unirse</button>
           </form>
         </div>
       </div>
