@@ -42,7 +42,7 @@ const Auth = () => {
             <button className="button auth__button-send">Unirse</button>
           </form>
         </div>
-        <span className='button auth__button-next'>
+        <span className='button auth__button-next auth__button-next--register'>
           <FontAwesomeIcon icon={faArrowLeft} />
         </span>
       </div>
