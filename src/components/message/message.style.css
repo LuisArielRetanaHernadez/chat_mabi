@@ -1,14 +1,14 @@
 .message {
+  padding: 5px;
   width: 50%;
   border: none;
   border-radius: 15px;
-  box-shadow: 2px 2px 2px var(--gray-pizarra);
-  background-color: var(--white);
 }
 
 .message__avatar {
   width: 50px;
   height: 50px;
+  margin-bottom: 5px;
   border-radius: 50%;
 }
 
@@ -21,6 +21,9 @@
 
 /* ...... message and useranem ..... */
 .message__box {
+  padding: 3px;
+  margin-bottom: 5px;
+  border-radius: 10px;
   background-color: var(--blue-cobalto);
 }
 
