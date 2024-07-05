@@ -1,10 +1,13 @@
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import './auth.style.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Auth = () => {
   return (
     <section className="auth">
       <div className="auth__box">
         <div className="auth__login auth__section">
+          <h2 className="auth__title">Entra a chatear!</h2>
           <form className="auth__form">
             <div className="auth__form-field">
               <input type="email" placeholder='email' />
@@ -14,6 +17,9 @@ const Auth = () => {
             </div>
             <button className="button auth__button-send">Entrar</button>
           </form>
+          <span>
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </span>
         </div>
         <div className="auth__register auth__section">
           <form className="auth__form">
