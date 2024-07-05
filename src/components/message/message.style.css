@@ -60,3 +60,21 @@
   color: var(--gray-pizarra);
   cursor: initial;
 }
+
+/* .... style of menssage if message is user current ... */
+
+.message--author .message__box {
+  text-align: end;
+}
+
+.message--author .message__avatar {
+  margin-left: auto;
+}
+
+.message--author .message__about {
+  flex-direction: row-reverse;
+}
+
+.message--author .message__icon-status {
+  margin-left: 0;
+}
