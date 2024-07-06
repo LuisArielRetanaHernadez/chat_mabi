@@ -18,7 +18,6 @@ const Auth = () => {
     email: '',
     password: '',
     passwordConfirm: '',
-    image: ''
   })
   const [imageProfile, setImageProfile] = useState({
     file: '',
@@ -76,11 +75,15 @@ const Auth = () => {
       const res = await createUserWithEmailAndPassword(auth, dataForm.email, dataForm.password)
       const user = res.user
       const urlImageUpload = await uploadFile(imageProfile.file, `images/profiles/${user.uid}/photos/profile_pictures`)
-      await setDoc(doc(db, 'users', user.uid), {
+      const dataRegister = {
         ...dataForm,
         id: user.uid,
         blocked: [],
-        photoURL: urlImageUpload
+        photoURL: urlImageUpload,
+      }
+      delete dataRegister.passwordConfirm
+      await setDoc(doc(db, 'users', user.uid), {
+        dataRegister
       })
 
       await setDoc(doc(db, 'userChats', user.uid), {
@@ -99,6 +102,8 @@ const Auth = () => {
     } catch (error) {
       const stringError = JSON.stringify(error)
       const errorObject = JSON.parse(stringError)
+
+      console.log('erro registro ', error)
 
       if (errorObject.code === 'auth/email-already-in-use') {
         toast.error('Usuario ya registrado', {
