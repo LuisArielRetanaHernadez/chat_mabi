@@ -10,6 +10,9 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { setDoc } from 'firebase/firestore'
 import { doc } from 'firebase/firestore'
 import uploadFile from '../../lib/uploadFile'
+import { useStore } from '../../lib/userStorage'
+
+import { useNavigate } from 'react-router-dom'
 
 const Auth = () => {
   const [modeAuth, setModeAuth] = useState('login')
@@ -29,6 +32,10 @@ const Auth = () => {
   const registerRef = useRef(null)
   const buttonNextRef = useRef(null)
 
+  const navigate = useNavigate()
+
+  const { currentUser } = useStore()
+
   useEffect(() => {
     if (loginRef.current === null || registerRef.current === null) return
     if (modeAuth === 'login') {
@@ -46,11 +53,15 @@ const Auth = () => {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      await signInWithEmailAndPassword(auth, dataForm.email, dataForm.password)
+      const res = await signInWithEmailAndPassword(auth, dataForm.email, dataForm.password)
+      console.log('res login', res)
     } catch (error) {
       // el parametro erro me arroja un strin pero quiero que sea un json o objeto 
       const stringError = JSON.stringify(error)
       const errorObject = JSON.parse(stringError)
+      console.log('error login ', errorObject)
+
+      // validacion de errores
       if (errorObject.code === 'auth/invalid-credentia'
         || errorObject.code === 'auth/invalid-email'
         || errorObject.code === 'auth/invalid-password') {
@@ -67,6 +78,13 @@ const Auth = () => {
       }
     }
   }
+
+  useEffect(() => {
+    console.log('current user ', currentUser)
+    if (currentUser) {
+      navigate('/')
+    }
+  }, [currentUser])
 
   const handleRegister = async (e) => {
     e.preventDefault()
