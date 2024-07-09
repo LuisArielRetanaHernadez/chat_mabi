@@ -3,11 +3,13 @@
 import "./listChat.style.css"
 import { useEffect, useState } from 'react'
 import { useStore } from "../../lib/userStorage"
-import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore"
+import { collection, doc, getDoc, onSnapshot, query, updateDoc } from "firebase/firestore"
 import { db } from "../../lib/firebase"
 import { useChatStore } from "../../lib/useChatStore"
 import { Link } from "react-router-dom"
 import Search from "../search/Search"
+import { collection } from 'firebase/firestore'
+import { where } from 'firebase/firestore'
 
 const ListChat = () => {
   const [chats, setChats] = useState([])
@@ -84,6 +86,11 @@ const ListChat = () => {
     } catch (err) {
       console.log(err);
     }
+  }
+
+  const searchUsers = (user) => {
+    const userRef = collection(db, "users");
+    const q = query(userRef, where("email", ">=", user), where("username", ">=", user));
   }
   return (
     // <div className="chatList">
