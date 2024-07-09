@@ -1,13 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import "./index.css";
 
 // router dom
-import { createRoot } from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./login/Login";
 import MenuLayout from "./layouts/MenuLayout/Menu.layout";
 import ListChatLayout from "./layouts/ListChatLayout/ListChat.layout";
 import Auth from "./pages/Auth/Auth.page";
@@ -26,7 +23,7 @@ const routers = createBrowserRouter([
     ],
   },
   {
-    path: "/login",
+    path: "/auth",
     element: <Auth />,
   },
 ]);
