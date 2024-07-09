@@ -8,83 +8,85 @@ import { db } from "../../lib/firebase"
 import { useChatStore } from "../../lib/useChatStore"
 import { Link } from "react-router-dom"
 import Search from "../search/Search"
+import useAuthFirebase from "../../hooks/useAuthFirebase"
 
 const ListChat = () => {
-  const [chats, setChats] = useState([])
+  // const [chats, setChats] = useState([])
 
-  const { currentUser } = useStore()
-  const { changeChat } = useChatStore()
+  // const { changeChat } = useChatStore()
 
-  useEffect(() => {
-    console.log('currentUser ', currentUser)
+  // const authUser = useAuthFirebase()
 
-    if (!currentUser) return
+  // useEffect(() => {
+  //   console.log('authUser ', authUser)
 
-    // get chats
-    const unSub = onSnapshot(doc(db, "userChats", currentUser?.id), async (res) => {
+  //   if (!authUser) return
 
-      const itemsChat = res.data().chats
-      console.log('itemsChat ', itemsChat)
+  //   // get chats
+  //   const unSub = onSnapshot(doc(db, "userChats", authUser?.id), async (res) => {
 
-      // get user data
-      const promisse = itemsChat.map(async (item) => {
-        const userRef = doc(db, "users", item.receiverId)
-        const userSnap = await getDoc(userRef)
+  //     const itemsChat = res.data().chats
+  //     console.log('itemsChat ', itemsChat)
 
-        const user = userSnap.data()
+  //     // get user data
+  //     const promisse = itemsChat.map(async (item) => {
+  //       const userRef = doc(db, "users", item.receiverId)
+  //       const userSnap = await getDoc(userRef)
 
-        return { user, ...item }
-      });
+  //       const user = userSnap.data()
 
-      const chatData = await Promise.all(promisse)
-      console.log('chatData ', chatData)
-      // setChats(chatData.sort((a, b) => {
-      //   if (a.lastMessage && b.lastMessage) {
-      //     return a.lastMessage.time - b.lastMessage.time
-      //   }
-      // }))
+  //       return { user, ...item }
+  //     });
 
-      setChats(chatData.sort((a, b) => b.updatedAt - a.updatedAt));
+  //     const chatData = await Promise.all(promisse)
+  //     console.log('chatData ', chatData)
+  //     // setChats(chatData.sort((a, b) => {
+  //     //   if (a.lastMessage && b.lastMessage) {
+  //     //     return a.lastMessage.time - b.lastMessage.time
+  //     //   }
+  //     // }))
 
-      console.log('chats ', chats)
+  //     setChats(chatData.sort((a, b) => b.updatedAt - a.updatedAt));
 
-    });
+  //     console.log('chats ', chats)
 
-    return () => {
-      unSub();
-    }
-  }, [currentUser?.id])
+  //   });
 
-  const handleSelect = async (chat) => {
-    console.log('chat ', chat)
+  //   return () => {
+  //     unSub();
+  //   }
+  // }, [authUser?.id])
 
-    // update isSeen  
-    const userChats = chats.map((item) => {
-      const { ...rest } = item;
-      return rest;
-    });
+  // const handleSelect = async (chat) => {
+  //   console.log('chat ', chat)
 
-    console.log('userChats ', userChats)
+  //   // update isSeen
+  //   const userChats = chats.map((item) => {
+  //     const { ...rest } = item;
+  //     return rest;
+  //   });
 
-    const chatIndex = userChats.findIndex(
-      (item) => item.chatId === chat.chatId
-    );
+  //   console.log('userChats ', userChats)
 
-    console.log('chatIndex ', chatIndex)
+  //   const chatIndex = userChats.findIndex(
+  //     (item) => item.chatId === chat.chatId
+  //   );
 
-    userChats[chatIndex].isSeen = true;
+  //   console.log('chatIndex ', chatIndex)
 
-    const userChatsRef = doc(db, "userChats", currentUser.id);
-    console.log('userChatsRef ', userChatsRef)
-    try {
-      await updateDoc(userChatsRef, {
-        chats: userChats,
-      });
-      changeChat(chat.chatId, chat.user);
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  //   userChats[chatIndex].isSeen = true;
+
+  //   const userChatsRef = doc(db, "userChats", authUser.id);
+  //   console.log('userChatsRef ', userChatsRef)
+  //   try {
+  //     await updateDoc(userChatsRef, {
+  //       chats: userChats,
+  //     });
+  //     changeChat(chat.chatId, chat.user);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
   return (
     // <div className="chatList">
     //   <div className="search">
