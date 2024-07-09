@@ -8,22 +8,20 @@ import { db } from "../../lib/firebase"
 import { useChatStore } from "../../lib/useChatStore"
 import { Link } from "react-router-dom"
 import Search from "../search/Search"
-import useAuthFirebase from "../../hooks/useAuthFirebase"
 
 const ListChat = () => {
   const [chats, setChats] = useState([])
 
   const { changeChat } = useChatStore()
 
-  const authUser = useAuthFirebase()
+  const { currentUser } = useStore()
 
   useEffect(() => {
-    console.log('authUser ', authUser)
 
-    if (!authUser) return
+    if (!currentUser) return
 
     // get chats
-    const unSub = onSnapshot(doc(db, "userChats", authUser?.id), async (res) => {
+    const unSub = onSnapshot(doc(db, "userChats", currentUser?.id), async (res) => {
 
       const itemsChat = res.data().chats
       console.log('itemsChat ', itemsChat)
@@ -55,7 +53,7 @@ const ListChat = () => {
     return () => {
       unSub();
     }
-  }, [authUser?.id])
+  }, [currentUser?.id])
 
   const handleSelect = async (chat) => {
     console.log('chat ', chat)
@@ -76,7 +74,7 @@ const ListChat = () => {
 
     userChats[chatIndex].isSeen = true;
 
-    const userChatsRef = doc(db, "userChats", authUser.id);
+    const userChatsRef = doc(db, "userChats", currentUser.id);
     console.log('userChatsRef ', userChatsRef)
     try {
       await updateDoc(userChatsRef, {
