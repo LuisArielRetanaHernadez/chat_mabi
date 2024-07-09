@@ -10,9 +10,9 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { setDoc } from 'firebase/firestore'
 import { doc } from 'firebase/firestore'
 import uploadFile from '../../lib/uploadFile'
+import { useStore } from '../../lib/userStorage'
 
 import { useNavigate } from 'react-router-dom'
-import useAuthFirebase from '../../hooks/useAuthFirebase'
 
 const Auth = () => {
   const [modeAuth, setModeAuth] = useState('login')
@@ -27,7 +27,6 @@ const Auth = () => {
     url: ''
   })
 
-  const authUser = useAuthFirebase()
 
   const loginRef = useRef(null)
   const registerRef = useRef(null)
@@ -35,6 +34,7 @@ const Auth = () => {
 
   const navigate = useNavigate()
 
+  const { currentUser, fetchCurrentUser } = useStore()
 
   useEffect(() => {
     if (loginRef.current === null || registerRef.current === null) return
@@ -53,7 +53,10 @@ const Auth = () => {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      await signInWithEmailAndPassword(auth, dataForm.email, dataForm.password)
+      const res = await signInWithEmailAndPassword(auth, dataForm.email, dataForm.password)
+      const user = res.user
+      fetchCurrentUser(user.uid)
+
     } catch (error) {
       // el parametro erro me arroja un strin pero quiero que sea un json o objeto 
       const stringError = JSON.stringify(error)
@@ -99,7 +102,7 @@ const Auth = () => {
       await setDoc(doc(db, 'userChats', user.uid), {
         chats: []
       })
-
+      fetchCurrentUser(user.uid)
       toast.success('usuario creado correctamente', {
         position: "top-center",
         autoClose: 5000,
@@ -132,10 +135,29 @@ const Auth = () => {
   }
 
   useEffect(() => {
-    if (authUser !== null) {
+    const unSub = auth.onAuthStateChanged(user => {
+      if (user) {
+        console.log(user)
+        // traer los datos del usuario
+        console.log('user', user)
+        // traer los datos del usuario
+        fetchCurrentUser(user.uid)
+      }
+    })
+    return () => {
+      unSub()
+    }
+  }, [fetchCurrentUser])
+
+
+
+  useEffect(() => {
+    console.log(currentUser)
+    // redireccionar si el usuario esta logeado
+    if (currentUser !== null) {
       navigate('/')
     }
-  }, [authUser])
+  }, [currentUser])
 
   return (
     <section className="auth">
