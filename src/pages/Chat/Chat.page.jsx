@@ -3,7 +3,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './chat.style.css'
 import { faFaceLaughWink, faFileImport, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import Message from '../../components/message/Message'
+
+import { useStore } from '../../lib/userStorage'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 const Chat = () => {
+
+  const { currentUser } = useStore()
+
+  const navigate = useNavigate()
+
+
+  useEffect(() => {
+    if (currentUser === null) {
+      navigate('/')
+    }
+  }, [currentUser])
   return (
     <div className="chat">
       <div className="chat__messages">
