@@ -1,29 +1,26 @@
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 import './menu.style.css'
 import Logo from "../../components/logo/Logo";
 
-import { useStore } from "../../lib/userStorage";
 import { auth } from "../../lib/firebase";
 import { useEffect } from "react";
 
+import useAuthFirebase from "../../hooks/useAuthFirebase";
+
 const MenuLayout = () => {
 
-  const { currentUser, fetchCurrentUser } = useStore()
+  const authUser = useAuthFirebase();
 
-  console.log('currentUser ', currentUser)
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const unSub = auth.onAuthStateChanged(user => {
-      if (user) {
-        fetchCurrentUser(user.uid)
-      }
-    })
-
-    return () => unSub();
-  }, [])
+    if (!authUser) {
+      navigate('/auth')
+    }
+  }, [authUser])
 
   const logout = () => {
     auth.signOut()
@@ -40,8 +37,8 @@ const MenuLayout = () => {
           </span>
           <ul className="menu__list">
             <li className="menu__item">
-              <Link to={`profile/${currentUser?.id}`} className="menu__link menu__profile-content-photo">
-                <img className="menu__profile-photo" src={currentUser?.photoURL} />
+              <Link to={`profile/${authUser?.id}`} className="menu__link menu__profile-content-photo">
+                <img className="menu__profile-photo" src={authUser?.photoURL} />
               </Link>
             </li>
             <li className="menu__item">
