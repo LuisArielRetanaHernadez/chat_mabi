@@ -8,7 +8,6 @@ import { db } from "../../lib/firebase"
 import { useChatStore } from "../../lib/useChatStore"
 import { Link } from "react-router-dom"
 import Search from "../search/Search"
-import { collection } from 'firebase/firestore'
 import { where } from 'firebase/firestore'
 
 const ListChat = () => {
@@ -88,9 +87,13 @@ const ListChat = () => {
     }
   }
 
-  const searchUsers = (user) => {
+  const searchUsers = async (user) => {
     const userRef = collection(db, "users");
     const q = query(userRef, where("email", ">=", user), where("username", ">=", user));
+    const querySnapShot = await getDoc(q);
+    if (querySnapShot.exists()) {
+      setChats([querySnapShot.data()]);
+    }
   }
   return (
     // <div className="chatList">
@@ -120,7 +123,7 @@ const ListChat = () => {
     <div className="list-chat">
       <div className="list-chat__search">
         {/* search bar */}
-        <Search />
+        <Search setSearch={searchUsers} />
       </div>
       <ul className="list-chat__list">
         {chats?.length ? (
