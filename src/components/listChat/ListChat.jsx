@@ -11,82 +11,82 @@ import Search from "../search/Search"
 import useAuthFirebase from "../../hooks/useAuthFirebase"
 
 const ListChat = () => {
-  // const [chats, setChats] = useState([])
+  const [chats, setChats] = useState([])
 
-  // const { changeChat } = useChatStore()
+  const { changeChat } = useChatStore()
 
-  // const authUser = useAuthFirebase()
+  const authUser = useAuthFirebase()
 
-  // useEffect(() => {
-  //   console.log('authUser ', authUser)
+  useEffect(() => {
+    console.log('authUser ', authUser)
 
-  //   if (!authUser) return
+    if (!authUser) return
 
-  //   // get chats
-  //   const unSub = onSnapshot(doc(db, "userChats", authUser?.id), async (res) => {
+    // get chats
+    const unSub = onSnapshot(doc(db, "userChats", authUser?.id), async (res) => {
 
-  //     const itemsChat = res.data().chats
-  //     console.log('itemsChat ', itemsChat)
+      const itemsChat = res.data().chats
+      console.log('itemsChat ', itemsChat)
 
-  //     // get user data
-  //     const promisse = itemsChat.map(async (item) => {
-  //       const userRef = doc(db, "users", item.receiverId)
-  //       const userSnap = await getDoc(userRef)
+      // get user data
+      const promisse = itemsChat.map(async (item) => {
+        const userRef = doc(db, "users", item.receiverId)
+        const userSnap = await getDoc(userRef)
 
-  //       const user = userSnap.data()
+        const user = userSnap.data()
 
-  //       return { user, ...item }
-  //     });
+        return { user, ...item }
+      });
 
-  //     const chatData = await Promise.all(promisse)
-  //     console.log('chatData ', chatData)
-  //     // setChats(chatData.sort((a, b) => {
-  //     //   if (a.lastMessage && b.lastMessage) {
-  //     //     return a.lastMessage.time - b.lastMessage.time
-  //     //   }
-  //     // }))
+      const chatData = await Promise.all(promisse)
+      console.log('chatData ', chatData)
+      // setChats(chatData.sort((a, b) => {
+      //   if (a.lastMessage && b.lastMessage) {
+      //     return a.lastMessage.time - b.lastMessage.time
+      //   }
+      // }))
 
-  //     setChats(chatData.sort((a, b) => b.updatedAt - a.updatedAt));
+      setChats(chatData.sort((a, b) => b.updatedAt - a.updatedAt));
 
-  //     console.log('chats ', chats)
+      console.log('chats ', chats)
 
-  //   });
+    });
 
-  //   return () => {
-  //     unSub();
-  //   }
-  // }, [authUser?.id])
+    return () => {
+      unSub();
+    }
+  }, [authUser?.id])
 
-  // const handleSelect = async (chat) => {
-  //   console.log('chat ', chat)
+  const handleSelect = async (chat) => {
+    console.log('chat ', chat)
 
-  //   // update isSeen
-  //   const userChats = chats.map((item) => {
-  //     const { ...rest } = item;
-  //     return rest;
-  //   });
+    // update isSeen
+    const userChats = chats.map((item) => {
+      const { ...rest } = item;
+      return rest;
+    });
 
-  //   console.log('userChats ', userChats)
+    console.log('userChats ', userChats)
 
-  //   const chatIndex = userChats.findIndex(
-  //     (item) => item.chatId === chat.chatId
-  //   );
+    const chatIndex = userChats.findIndex(
+      (item) => item.chatId === chat.chatId
+    );
 
-  //   console.log('chatIndex ', chatIndex)
+    console.log('chatIndex ', chatIndex)
 
-  //   userChats[chatIndex].isSeen = true;
+    userChats[chatIndex].isSeen = true;
 
-  //   const userChatsRef = doc(db, "userChats", authUser.id);
-  //   console.log('userChatsRef ', userChatsRef)
-  //   try {
-  //     await updateDoc(userChatsRef, {
-  //       chats: userChats,
-  //     });
-  //     changeChat(chat.chatId, chat.user);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
+    const userChatsRef = doc(db, "userChats", authUser.id);
+    console.log('userChatsRef ', userChatsRef)
+    try {
+      await updateDoc(userChatsRef, {
+        chats: userChats,
+      });
+      changeChat(chat.chatId, chat.user);
+    } catch (err) {
+      console.log(err);
+    }
+  }
   return (
     // <div className="chatList">
     //   <div className="search">
