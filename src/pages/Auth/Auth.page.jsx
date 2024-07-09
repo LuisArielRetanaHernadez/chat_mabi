@@ -10,9 +10,9 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { setDoc } from 'firebase/firestore'
 import { doc } from 'firebase/firestore'
 import uploadFile from '../../lib/uploadFile'
-import { useStore } from '../../lib/userStorage'
 
 import { useNavigate } from 'react-router-dom'
+import useAuthFirebase from '../../hooks/useAuthFirebase'
 
 const Auth = () => {
   const [modeAuth, setModeAuth] = useState('login')
@@ -27,6 +27,7 @@ const Auth = () => {
     url: ''
   })
 
+  const authUser = useAuthFirebase()
 
   const loginRef = useRef(null)
   const registerRef = useRef(null)
@@ -34,7 +35,6 @@ const Auth = () => {
 
   const navigate = useNavigate()
 
-  const { currentUser, fetchCurrentUser } = useStore()
 
   useEffect(() => {
     if (loginRef.current === null || registerRef.current === null) return
@@ -53,9 +53,7 @@ const Auth = () => {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const res = await signInWithEmailAndPassword(auth, dataForm.email, dataForm.password)
-      const user = res.user
-      unSub(user.uid)
+      await signInWithEmailAndPassword(auth, dataForm.email, dataForm.password)
     } catch (error) {
       // el parametro erro me arroja un strin pero quiero que sea un json o objeto 
       const stringError = JSON.stringify(error)
@@ -102,8 +100,6 @@ const Auth = () => {
         chats: []
       })
 
-      unSub(user.uid)
-
       toast.success('usuario creado correctamente', {
         position: "top-center",
         autoClose: 5000,
@@ -135,18 +131,11 @@ const Auth = () => {
     }
   }
 
-  const unSub = auth.onAuthStateChanged(user => {
-    if (user) {
-      fetchCurrentUser(user.uid)
-      navigate('/')
-    }
-  })
-
   useEffect(() => {
-    if (currentUser) {
+    if (authUser !== null) {
       navigate('/')
     }
-  }, [currentUser])
+  }, [authUser])
 
   return (
     <section className="auth">
