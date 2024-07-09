@@ -16,13 +16,15 @@
 .menu__list {
   margin-right: 20px;
   list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
   position: relative;
 }
 
 .menu__item {
   padding: 2px;
   cursor: pointer;
-  display: inline-block;
 }
 
 .menu__link {
