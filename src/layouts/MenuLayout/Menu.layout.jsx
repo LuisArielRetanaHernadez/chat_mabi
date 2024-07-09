@@ -25,6 +25,10 @@ const MenuLayout = () => {
     return () => unSub();
   }, [])
 
+  const logout = () => {
+    auth.signOut()
+  }
+
 
 
   return (
@@ -43,7 +47,7 @@ const MenuLayout = () => {
             <li className="menu__item">
               <FontAwesomeIcon icon={faEllipsisVertical} />
               <ul className="menu__sub-list">
-                <li className="menu__item">Logout</li>
+                <li className="menu__item" onClick={logout}>Logout</li>
               </ul>
             </li>
           </ul>
