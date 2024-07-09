@@ -1,6 +1,6 @@
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 import './menu.style.css'
 import Logo from "../../components/logo/Logo";
@@ -36,7 +36,9 @@ const MenuLayout = () => {
           </span>
           <ul className="menu__list">
             <li className="menu__item">
-              Photo
+              <Link to={`profile/${currentUser?.id}`} className="menu__link menu__profile-content-photo">
+                <img className="menu__profile-photo" src={currentUser?.photoURL} />
+              </Link>
             </li>
             <li className="menu__item">
               <FontAwesomeIcon icon={faEllipsisVertical} />
