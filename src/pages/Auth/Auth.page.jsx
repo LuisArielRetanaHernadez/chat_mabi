@@ -95,7 +95,7 @@ const Auth = () => {
       }
       delete dataRegister.passwordConfirm
       await setDoc(doc(db, 'users', user.uid), {
-        dataRegister
+        ...dataRegister
       })
 
       await setDoc(doc(db, 'userChats', user.uid), {
