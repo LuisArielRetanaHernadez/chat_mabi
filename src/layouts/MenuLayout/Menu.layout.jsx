@@ -5,7 +5,28 @@ import { Outlet } from "react-router-dom";
 import './menu.style.css'
 import Logo from "../../components/logo/Logo";
 
+import { useStore } from "../../lib/userStorage";
+import { auth } from "../../lib/firebase";
+import { useEffect } from "react";
+
 const MenuLayout = () => {
+
+  const { currentUser, fetchCurrentUser } = useStore()
+
+  console.log('currentUser ', currentUser)
+
+  useEffect(() => {
+    const unSub = auth.onAuthStateChanged(user => {
+      if (user) {
+        fetchCurrentUser(user.uid)
+      }
+    })
+
+    return () => unSub();
+  }, [])
+
+
+
   return (
     <section className="page">
       <div className="menu">
@@ -14,6 +35,9 @@ const MenuLayout = () => {
             <Logo />
           </span>
           <ul className="menu__list">
+            <li className="menu__item">
+              Photo
+            </li>
             <li className="menu__item">
               <FontAwesomeIcon icon={faEllipsisVertical} />
               <ul className="menu__sub-list">
