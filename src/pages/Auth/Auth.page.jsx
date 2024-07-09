@@ -34,7 +34,7 @@ const Auth = () => {
 
   const navigate = useNavigate()
 
-  const { currentUser } = useStore()
+  const { currentUser, fetchCurrentUser } = useStore()
 
   useEffect(() => {
     if (loginRef.current === null || registerRef.current === null) return
@@ -54,12 +54,12 @@ const Auth = () => {
     e.preventDefault()
     try {
       const res = await signInWithEmailAndPassword(auth, dataForm.email, dataForm.password)
-      console.log('res login', res)
+      const user = res.user
+      unSub(user.uid)
     } catch (error) {
       // el parametro erro me arroja un strin pero quiero que sea un json o objeto 
       const stringError = JSON.stringify(error)
       const errorObject = JSON.parse(stringError)
-      console.log('error login ', errorObject)
 
       // validacion de errores
       if (errorObject.code === 'auth/invalid-credentia'
@@ -79,12 +79,6 @@ const Auth = () => {
     }
   }
 
-  useEffect(() => {
-    console.log('current user ', currentUser)
-    if (currentUser) {
-      navigate('/')
-    }
-  }, [currentUser])
 
   const handleRegister = async (e) => {
     e.preventDefault()
@@ -107,6 +101,9 @@ const Auth = () => {
       await setDoc(doc(db, 'userChats', user.uid), {
         chats: []
       })
+
+      unSub(user.uid)
+
       toast.success('usuario creado correctamente', {
         position: "top-center",
         autoClose: 5000,
@@ -137,6 +134,19 @@ const Auth = () => {
       }
     }
   }
+
+  const unSub = auth.onAuthStateChanged(user => {
+    if (user) {
+      fetchCurrentUser(user.uid)
+      navigate('/')
+    }
+  })
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/')
+    }
+  }, [currentUser])
 
   return (
     <section className="auth">
