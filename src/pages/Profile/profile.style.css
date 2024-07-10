@@ -116,3 +116,9 @@
 .profile__content-information-connection .profile__username {
   margin-bottom: 10px;
 }
+
+.profile__state-connnection {
+  color: #9ddac6;
+  font-weight: 500;
+  font-style: oblique;
+}
