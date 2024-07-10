@@ -26,8 +26,10 @@ const Profile = () => {
       </ul>
       <div className='profile__connections'>
         <h2 className='profile__subtitle'>conexiones de user 1</h2>
-        <span className='profile__visible-connections'>Conexiones visbles</span>
-        <span className='profile__connections-total'>109 conexiones</span>
+        <div>
+          <span className='profile__visible-connections'>Conexiones visbles</span>
+          <span className='profile__connections-total'>109 conexiones</span>
+        </div>
         <ul className='profile__list-connections'>
           <li className='profile__item-connections'>
             <Link to="" className='profile__link-connection'>

@@ -85,6 +85,20 @@
   align-items: center;
 }
 
+.profile__visible-connections {
+  margin-right: 20px;
+  color: #1a5319;
+  font-size: 17px;
+  display: inline-block;
+}
+
+.profile__connections-total {
+  color: var(--gray-pizarra);
+  font-weight: 500;
+  font-size: 17px;
+  display: inline-block;
+}
+
 .profile__list-connections {
   width: 80%;
   max-height: 700px;
