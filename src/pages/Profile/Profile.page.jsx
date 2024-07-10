@@ -10,7 +10,7 @@ const Profile = () => {
   return (
     <div className='profile'>
       <div className='profile__content-image-avatar'>
-        <img className='profile__image-avatar' src={currentUser?.photoURL} />
+        <img className='profile__image-avatar' src='https://images.pexels.com/photos/2048434/pexels-photo-2048434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
       </div>
       <div className='profile__identify'>
         <p className='profile__username'>Username</p>
