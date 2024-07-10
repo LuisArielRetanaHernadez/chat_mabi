@@ -1,7 +1,6 @@
 .profile {
   width: 100%;
   height: auto;
-  background-color: red;
 }
 
 .profile__subtitle {
@@ -48,7 +47,6 @@
 .profile__list-informations {
   margin-top: 40px;
   list-style: none;
-  background-color: blue;
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -75,7 +73,6 @@
   padding: 10px;
   list-style: none;
   overflow-y: auto;
-  background-color: chocolate;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 10px;
