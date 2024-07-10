@@ -4,6 +4,11 @@
   background-color: red;
 }
 
+.profile__subtitle {
+  line-height: 1.5;
+  font-size: 30px;
+}
+
 /* ...... image photo user ..... */
 .profile__content-image-avatar {
   width: 100px;
