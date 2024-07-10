@@ -25,7 +25,6 @@ const ListChat = () => {
     const unSub = onSnapshot(doc(db, "userChats", currentUser?.id), async (res) => {
 
       const itemsChat = res.data().chats
-      console.log('itemsChat ', itemsChat)
 
       // get user data
       const promisse = itemsChat.map(async (item) => {
@@ -38,7 +37,6 @@ const ListChat = () => {
       });
 
       const chatData = await Promise.all(promisse)
-      console.log('chatData ', chatData)
       // setChats(chatData.sort((a, b) => {
       //   if (a.lastMessage && b.lastMessage) {
       //     return a.lastMessage.time - b.lastMessage.time
@@ -46,8 +44,6 @@ const ListChat = () => {
       // }))
 
       setChats(chatData.sort((a, b) => b.updatedAt - a.updatedAt));
-
-      console.log('chats ', chats)
 
     });
 
@@ -65,18 +61,13 @@ const ListChat = () => {
       return rest;
     });
 
-    console.log('userChats ', userChats)
-
     const chatIndex = userChats.findIndex(
       (item) => item.chatId === chat.chatId
     );
 
-    console.log('chatIndex ', chatIndex)
-
     userChats[chatIndex].isSeen = true;
 
     const userChatsRef = doc(db, "userChats", currentUser.id);
-    console.log('userChatsRef ', userChatsRef)
     try {
       await updateDoc(userChatsRef, {
         chats: userChats,
@@ -89,14 +80,10 @@ const ListChat = () => {
 
   const searchUsers = async (user) => {
     try {
-      console.log('user ', user)
       // get user data
       const userRef = collection(db, "users");
-      console.log('collection ', userRef)
       const q = query(userRef, where("username", ">=", user));
-      console.log('q ', q)
       const querySnapShot = await getDocs(q);
-      console.log('querySnapShot ', querySnapShot.docs)
       if (!querySnapShot.empty) {
         // obtener todos los usuarios encontrados para set el estado chats
         const chats = querySnapShot.docs.map((doc) => doc.data());
