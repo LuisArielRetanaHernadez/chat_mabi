@@ -5,12 +5,12 @@ import './search.style.css'
 
 const Search = ({ search, setSearch }) => {
   return (
-    <div className='search'>
+    <form className='search'>
       <input className='search__input' type="text" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
       <span className='button search__button'>
         <FontAwesomeIcon icon={faMagnifyingGlass} />
       </span>
-    </div>
+    </form>
   )
 }
 

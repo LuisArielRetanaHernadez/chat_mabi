@@ -3,7 +3,7 @@
 import "./listChat.style.css"
 import { useEffect, useState } from 'react'
 import { useStore } from "../../lib/userStorage"
-import { collection, doc, getDoc, onSnapshot, query, updateDoc } from "firebase/firestore"
+import { collection, doc, getDoc, getDocs, onSnapshot, query, updateDoc } from "firebase/firestore"
 import { db } from "../../lib/firebase"
 import { useChatStore } from "../../lib/useChatStore"
 import { Link } from "react-router-dom"
@@ -88,12 +88,24 @@ const ListChat = () => {
   }
 
   const searchUsers = async (user) => {
-    const userRef = collection(db, "users");
-    const q = query(userRef, where("email", ">=", user), where("username", ">=", user));
-    const querySnapShot = await getDoc(q);
-    if (querySnapShot.exists()) {
-      setChats([querySnapShot.data()]);
+    try {
+      console.log('user ', user)
+      // get user data
+      const userRef = collection(db, "users");
+      console.log('collection ', userRef)
+      const q = query(userRef, where("username", ">=", user));
+      console.log('q ', q)
+      const querySnapShot = await getDocs(q);
+      console.log('querySnapShot ', querySnapShot.docs)
+      if (!querySnapShot.empty) {
+        // setChats([querySnapShot.data()]);
+        console.log('querySnapShot.data() ', querySnapShot.docs[0].data())
+        setChats([querySnapShot.docs[0].data()]);
+      }
+    } catch (error) {
+      console.log('error ', error);
     }
+
   }
   return (
     // <div className="chatList">
@@ -129,13 +141,13 @@ const ListChat = () => {
         {chats?.length ? (
           chats.map((chat) => (
             <li className="list-chat__item" key={chat.chatId}>
-              <Link to={`/chat/${chat.chatId}`} className="list-chat__user" onClick={() => handleSelect(chat)}>
+              <Link to={`/chat/${chat?.chatId}`} className="list-chat__user" onClick={() => handleSelect(chat)}>
                 <figure className="list-chat__content-image">
-                  <img className="list-chat__image" src={chat.user.avatar} alt="avatar" />
+                  <img className="list-chat__image" src={chat.photoURL} alt="avatar" />
                 </figure>
                 <div className="list-chat__about-user">
-                  <span className="list-chat__username">{chat.user.username}</span>
-                  <p className="list-chat__last-message">{chat.lastMessage?.text}</p>
+                  <span className="list-chat__username">{chat.username}</span>
+                  <p className="list-chat__last-message">{chat?.lastMessage?.text}</p>
                 </div>
               </Link>
             </li>
