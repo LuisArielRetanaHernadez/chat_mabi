@@ -74,3 +74,13 @@
   list-style: none;
   background-color: chocolate;
 }
+
+.profile__item-connections {
+  margin: 4px 0;
+}
+
+.profile__link-connection {
+  padding: 5px;
+  background-color: red;
+  display: flex;
+}
