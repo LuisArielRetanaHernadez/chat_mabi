@@ -14,7 +14,7 @@ const Profile = () => {
       </div>
       <div className='profile__identify'>
         <p className='profile__username'>Username</p>
-        <span className='profile__is-contanct'>Conectados</span>
+        <span className='profile__state'>Conectados</span>
       </div>
       <ul className='profile__list-informations'>
         <li className='profile__item-information'>Nombre de usuario</li>

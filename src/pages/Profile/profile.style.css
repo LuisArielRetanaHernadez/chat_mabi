@@ -4,6 +4,7 @@
   background-color: red;
 }
 
+/* ...... image photo user ..... */
 .profile__content-image-avatar {
   width: 100px;
   height: 100px;
@@ -16,4 +17,23 @@
   height: 100%;
   border-radius: inherit;
   object-fit: cover;
+}
+
+/* ...... username and state ..... */
+
+.profile__identify {
+  width: max-content;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  display: block;
+}
+
+.profile__username {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.profile__state {
+  font-size: 15px;
 }
