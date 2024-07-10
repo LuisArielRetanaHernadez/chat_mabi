@@ -104,3 +104,11 @@
   height: 100%;
   border-radius: inherit;
 }
+
+.profile__content-information-connection {
+  height: 100%;
+}
+
+.profile__content-information-connection .profile__username {
+  margin-bottom: 10px;
+}
