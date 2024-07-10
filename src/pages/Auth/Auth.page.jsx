@@ -151,13 +151,13 @@ const Auth = () => {
 
 
 
-  useEffect(() => {
-    console.log(currentUser)
-    // redireccionar si el usuario esta logeado
-    if (currentUser !== null) {
-      navigate('/')
-    }
-  }, [currentUser])
+  // useEffect(() => {
+  //   console.log(currentUser)
+  //   // redireccionar si el usuario esta logeado
+  //   if (currentUser !== null) {
+  //     navigate('/')
+  //   }
+  // }, [currentUser])
 
   return (
     <section className="auth">

@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom';
 import './profile.style.css'
-
+import { useStore } from '../../lib/userStorage';
 const Profile = () => {
+
+  const { currentUser } = useStore()
+
+  console.log(currentUser)
+
   return (
     <div className='profile'>
       <div className='profile__content-image-avatar'>
-        <img className='profile__image-avatar' />
+        <img className='profile__image-avatar' src={currentUser?.photoURL} />
       </div>
       <div className='profile__identify'>
         <p className='profile__username'>Username</p>

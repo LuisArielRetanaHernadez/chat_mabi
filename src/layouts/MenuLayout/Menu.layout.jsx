@@ -20,11 +20,11 @@ const MenuLayout = () => {
     auth.signOut()
   }
 
-  useEffect(() => {
-    if (!currentUser) {
-      navigate('/auth')
-    }
-  }, [currentUser])
+  // useEffect(() => {
+  //   if (!currentUser) {
+  //     navigate('/auth')
+  //   }
+  // }, [currentUser])
 
 
 
