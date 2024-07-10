@@ -9,9 +9,13 @@ const Profile = () => {
 
   return (
     <div className='profile'>
-      <div className='profile__content-image-avatar'>
-        <img className='profile__image-avatar' src='https://images.pexels.com/photos/2048434/pexels-photo-2048434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
+      <div className='profile__header'>
+        <img className='profile__image-header' src='https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
+        <div className='profile__content-image-avatar'>
+          <img className='profile__image-avatar' src='https://images.pexels.com/photos/2048434/pexels-photo-2048434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
+        </div>
       </div>
+
       <div className='profile__identify'>
         <p className='profile__username'>Username</p>
         <span className='profile__state'>Conectados</span>
