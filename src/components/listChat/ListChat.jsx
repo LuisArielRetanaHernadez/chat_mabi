@@ -153,7 +153,7 @@ const ListChat = () => {
             </li>
           ))
         ) : (
-          <span>Sin chats</span>
+          <span className="list-chat__empty-list ">¿Quien para chatear?</span>
         )}
 
       </ul>
