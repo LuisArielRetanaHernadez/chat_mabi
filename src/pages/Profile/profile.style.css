@@ -87,6 +87,8 @@
 
 .profile__link-connection {
   padding: 5px;
+  color: var(--white);
+  text-decoration: none;
   background-color: red;
   display: flex;
   align-items: center;
