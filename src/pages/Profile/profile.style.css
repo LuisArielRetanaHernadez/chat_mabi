@@ -1,0 +1,19 @@
+.profile {
+  width: 100%;
+  height: auto;
+  background-color: red;
+}
+
+.profile__content-image-avatar {
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.profile__image-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
