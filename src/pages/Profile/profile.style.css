@@ -75,18 +75,21 @@
   overflow-y: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: max-content;
   gap: 10px;
 }
 
 .profile__item-connections {
   margin: 4px 0;
+  border-radius: 10px;
+  background-color: var(--blue-cobalto);
 }
 
 .profile__link-connection {
   padding: 5px;
   color: var(--white);
   text-decoration: none;
-  background-color: red;
+  border-radius: inherit;
   display: flex;
   align-items: center;
   gap: 15px;
@@ -102,6 +105,8 @@
   width: 100%;
   height: 100%;
   border-radius: inherit;
+  object-fit: cover;
+  object-position: top;
 }
 
 .profile__content-information-connection {

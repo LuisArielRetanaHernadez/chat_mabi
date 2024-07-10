@@ -28,7 +28,7 @@ const Profile = () => {
           <li className='profile__item-connections'>
             <Link to="" className='profile__link-connection'>
               <div className='profile__content-image'>
-                <img className='profile__image' />
+                <img className='profile__image' src='https://images.pexels.com/photos/2048434/pexels-photo-2048434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
               </div>
               <div className='profile__content-information-connection'>
                 <p className='profile__username profile__username--connection'>Name</p>
@@ -39,7 +39,7 @@ const Profile = () => {
           <li className='profile__item-connections'>
             <Link to="" className='profile__link-connection'>
               <div className='profile__content-image'>
-                <img className='profile__image' />
+                <img className='profile__image' src='https://images.pexels.com/photos/2048434/pexels-photo-2048434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
               </div>
               <div className='profile__content-information-connection'>
                 <p className='profile__username profile__username--connection'>Name</p>
@@ -50,7 +50,7 @@ const Profile = () => {
           <li className='profile__item-connections'>
             <Link to="" className='profile__link-connection'>
               <div className='profile__content-image'>
-                <img className='profile__image' />
+                <img className='profile__image' src='https://images.pexels.com/photos/2048434/pexels-photo-2048434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
               </div>
               <div className='profile__content-information-connection'>
                 <p className='profile__username profile__username--connection'>Name</p>
