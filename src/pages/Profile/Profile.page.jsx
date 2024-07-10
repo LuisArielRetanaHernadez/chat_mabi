@@ -3,60 +3,60 @@ import './profile.style.css'
 
 const Profile = () => {
   return (
-    <div>
-      <div>
-        <img />
+    <div className='profile'>
+      <div className='profile__content-image-avatar'>
+        <img className='profile__image-avatar' />
       </div>
-      <div>
-        <p>Username</p>
-        <span>Conectados</span>
+      <div className='profile__identify'>
+        <p className='profile__username'>Username</p>
+        <span className='profile__is-contanct'>Conectados</span>
       </div>
-      <ul>
-        <li>Nombre de usuario</li>
-        <li>Correo de usuario</li>
+      <ul className='profile__list-informations'>
+        <li className='profile__item-information'>Nombre de usuario</li>
+        <li className='profile__item-information'>Correo de usuario</li>
       </ul>
-      <div>
-        <h2>conexiones de user 1</h2>
-        <span>Conexiones visbles</span>
-        <span>109 conexiones</span>
-        <ul>
-          <li>
-            <Link to="">
-              <div>
-                <img />
+      <div className='profile__connections'>
+        <h2 className='profile__subtitle'>conexiones de user 1</h2>
+        <span className='profile__visible-connections'>Conexiones visbles</span>
+        <span className='profile__connections-total'>109 conexiones</span>
+        <ul className='profile__list-connections'>
+          <li className='profile__item-connections'>
+            <Link to="" className='profile__link-connection'>
+              <div className='profile__content-image'>
+                <img className='profile__image' />
               </div>
-              <div>
-                <p>Name</p>
-                <span>Contacto</span>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link to="">
-              <div>
-                <img />
-              </div>
-              <div>
-                <p>Name</p>
-                <span>Hablamos?</span>
+              <div className='profile__content-information-connection'>
+                <p className='profile__username profile__username--connection'>Name</p>
+                <span className='profile__state profile__state-connnection'>Contacto</span>
               </div>
             </Link>
           </li>
-          <li>
-            <Link to="">
-              <div>
-                <img />
+          <li className='profile__item-connections'>
+            <Link to="" className='profile__link-connection'>
+              <div className='profile__content-image'>
+                <img className='profile__image' />
               </div>
-              <div>
-                <p>Name</p>
-                <span>No me Hables</span>
+              <div className='profile__content-information-connection'>
+                <p className='profile__username profile__username--connection'>Name</p>
+                <span className='profile__state profile__state-connnection'>Contacto</span>
+              </div>
+            </Link>
+          </li>
+          <li className='profile__item-connections'>
+            <Link to="" className='profile__link-connection'>
+              <div className='profile__content-image'>
+                <img className='profile__image' />
+              </div>
+              <div className='profile__content-information-connection'>
+                <p className='profile__username profile__username--connection'>Name</p>
+                <span className='profile__state profile__state-connnection'>Contacto</span>
               </div>
             </Link>
           </li>
         </ul>
       </div>
-      <div>
-        <button>Elimar cuenta</button>
+      <div className='profile__content-button-delete'>
+        <button className='button profile__button-delete'>Elimar cuenta</button>
       </div>
     </div>
   );
