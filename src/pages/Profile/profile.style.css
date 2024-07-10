@@ -69,7 +69,7 @@
 
 .profile__list-connections {
   width: 80%;
-  height: 700px;
+  max-height: 700px;
   padding: 10px;
   list-style: none;
   overflow-y: auto;
