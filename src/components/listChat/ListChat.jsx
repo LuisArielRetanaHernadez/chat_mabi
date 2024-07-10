@@ -98,9 +98,9 @@ const ListChat = () => {
       const querySnapShot = await getDocs(q);
       console.log('querySnapShot ', querySnapShot.docs)
       if (!querySnapShot.empty) {
-        // setChats([querySnapShot.data()]);
-        console.log('querySnapShot.data() ', querySnapShot.docs[0].data())
-        setChats([querySnapShot.docs[0].data()]);
+        // obtener todos los usuarios encontrados para set el estado chats
+        const chats = querySnapShot.docs.map((doc) => doc.data());
+        setChats(chats);
       }
     } catch (error) {
       console.log('error ', error);
