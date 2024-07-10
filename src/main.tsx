@@ -9,6 +9,7 @@ import MenuLayout from "./layouts/MenuLayout/Menu.layout";
 import ListChatLayout from "./layouts/ListChatLayout/ListChat.layout";
 import Auth from "./pages/Auth/Auth.page";
 import Chat from "./pages/Chat/Chat.page";
+import Profile from "./pages/Profile/Profile.page";
 
 const routers = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const routers = createBrowserRouter([
         path: "/",
         element: <ListChatLayout />,
         children: [{ path: "/chat/:id", element: <Chat /> }],
+      },
+      {
+        path: "/profile/:id",
+        element: <Profile />,
       },
     ],
   },
