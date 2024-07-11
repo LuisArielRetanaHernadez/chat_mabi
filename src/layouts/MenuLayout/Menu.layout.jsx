@@ -8,6 +8,7 @@ import Logo from "../../components/logo/Logo";
 import { auth } from "../../lib/firebase";
 import { useStore } from "../../lib/userStorage";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const MenuLayout = () => {
 
@@ -15,16 +16,18 @@ const MenuLayout = () => {
 
   const navigate = useNavigate()
 
+  const { isAuth } = useSelector(state => state.user)
+
   const logout = () => {
     fetchCurrentUser(null)
     auth.signOut()
   }
 
-  // useEffect(() => {
-  //   if (!currentUser) {
-  //     navigate('/auth')
-  //   }
-  // }, [currentUser])
+  useEffect(() => {
+    if (!isAuth) {
+      navigate('/auth')
+    }
+  }, [isAuth])
 
 
 
