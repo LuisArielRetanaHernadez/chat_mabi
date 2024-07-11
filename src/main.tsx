@@ -12,6 +12,7 @@ import Chat from "./pages/Chat/Chat.page";
 import Profile from "./pages/Profile/Profile.page";
 
 import { store } from "./store";
+import { Provider } from "react-redux";
 
 const routers = createBrowserRouter([
   {
@@ -36,7 +37,9 @@ const routers = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <RouterProvider router={routers} />
-  </React.StrictMode>
+  <Provider store={store}>
+    <React.StrictMode>
+      <RouterProvider router={routers} />
+    </React.StrictMode>
+  </Provider>
 );
