@@ -12,6 +12,9 @@ import { doc } from 'firebase/firestore'
 import uploadFile from '../../lib/uploadFile'
 import { useStore } from '../../lib/userStorage'
 
+import { fetchLoginUser } from '../../features/user/userSlice'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { useNavigate } from 'react-router-dom'
 
 const Auth = () => {
@@ -34,6 +37,8 @@ const Auth = () => {
 
   const navigate = useNavigate()
 
+  const dispatch = useDispatch()
+
   const { currentUser, fetchCurrentUser } = useStore()
 
   useEffect(() => {
@@ -55,7 +60,8 @@ const Auth = () => {
     try {
       const res = await signInWithEmailAndPassword(auth, dataForm.email, dataForm.password)
       const user = res.user
-      fetchCurrentUser(user.uid)
+      dispatch(fetchLoginUser(user.uid))
+      await fetchCurrentUser(user.uid)
 
     } catch (error) {
       // el parametro erro me arroja un strin pero quiero que sea un json o objeto 
