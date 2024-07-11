@@ -40,7 +40,7 @@ const MenuLayout = () => {
           </Link>
           <ul className="menu__list">
             <li className="menu__item">
-              <Link to={`profile/${user.id}`} className="menu__link menu__profile-content-photo">
+              <Link to={`profile/${user?.id}`} className="menu__link menu__profile-content-photo">
                 <img className="menu__profile-photo" src={user?.photoURL} />
               </Link>
             </li>
