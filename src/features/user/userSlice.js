@@ -56,6 +56,16 @@ const userSlice = createSlice({
     builder.addCase(fetchLoginUser.rejected, state => {
       state.isLoading = false;
     })
+    builder.addCase(fetchLogoutUser.pending, state => {
+      state.isLoading = true;
+    })
+    builder.addCase(fetchLogoutUser.fulfilled, (state, action) => {
+      state.user = action.payload;
+      state.isLoading = false;
+    })
+    builder.addCase(fetchLogoutUser.rejected, state => {
+      state.isLoading = false;
+    })
   }
 });
 
