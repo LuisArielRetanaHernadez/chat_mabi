@@ -6,20 +6,20 @@ import './menu.style.css'
 import Logo from "../../components/logo/Logo";
 
 import { auth } from "../../lib/firebase";
-import { useStore } from "../../lib/userStorage";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchLogoutUser } from "../../features/user/userSlice";
 
 const MenuLayout = () => {
 
-  const { currentUser, fetchCurrentUser } = useStore()
-
   const navigate = useNavigate()
 
-  const { isAuth } = useSelector(state => state.user)
+  const dispatch = useDispatch()
 
-  const logout = () => {
-    fetchCurrentUser(null)
+  const { isAuth, user } = useSelector(state => state.user)
+
+  const logout = async () => {
+    await dispatch(fetchLogoutUser().unwrap())
     auth.signOut()
   }
 
@@ -41,7 +41,7 @@ const MenuLayout = () => {
           <ul className="menu__list">
             <li className="menu__item">
               <Link to={`profile/${'jh'}`} className="menu__link menu__profile-content-photo">
-                <img className="menu__profile-photo" src={currentUser?.photoURL} />
+                <img className="menu__profile-photo" src={user?.photoURL} />
               </Link>
             </li>
             <li className="menu__item">
