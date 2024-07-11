@@ -163,9 +163,32 @@
   border-radius: 10px;
   font-size: 18px;
   background-color: #ff0000;
+  position: relative;
   transition: all 0.2s;
 }
 
 .profile__button-delete:hover {
   background-color: #b80000;
+}
+
+.profile__button-delete-text {
+  transition: all 0.2s;
+}
+
+.profile__button-delete:hover .profile__button-delete-text {
+  opacity: 0;
+}
+
+.icon--delete {
+  position: absolute;
+  top: -100%;
+  right: 50%;
+  transform: translate(50%);
+  transition: all 0.2s;
+}
+
+.profile__button-delete:hover .icon--delete {
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
 }

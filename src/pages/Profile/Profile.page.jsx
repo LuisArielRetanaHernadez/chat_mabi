@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../lib/firebase';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Profile = () => {
   const [user, setUser] = useState(null);
 
@@ -84,7 +86,15 @@ const Profile = () => {
           </li>
         </ul>
       </div>
-      <button className='button profile__button-delete'>Eliminar cuenta</button>
+      <button className='button profile__button-delete'>
+        <p className='profile__button-delete-text'>
+          Eliminar cuenta
+        </p>
+
+        <span className='icon icon--delete'>
+          <FontAwesomeIcon icon={faTrashCan} />
+        </span>
+      </button>
     </div>
   );
 }
