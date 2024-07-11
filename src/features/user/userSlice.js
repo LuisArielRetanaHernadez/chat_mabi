@@ -40,7 +40,7 @@ export const fetchRegisterUser = createAsyncThunk(
       await addDoc(collection(db, "users"), {
         data
       })
-      await setDoc(doc(db, 'userChats', user.uid), {
+      await setDoc(doc(db, 'userChats', res.user.uid), {
         chats: []
       })
       return {
