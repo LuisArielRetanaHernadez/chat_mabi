@@ -39,8 +39,6 @@ const Auth = () => {
 
   const dispatch = useDispatch()
 
-  const { currentUser, fetchCurrentUser } = useStore()
-
   useEffect(() => {
     if (loginRef.current === null || registerRef.current === null) return
     if (modeAuth === 'login') {
@@ -58,11 +56,20 @@ const Auth = () => {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const res = await signInWithEmailAndPassword(auth, dataForm.email, dataForm.password)
-      const user = res.user
-      dispatch(fetchLoginUser(user.uid))
-      await fetchCurrentUser(user.uid)
-
+      dispatch(fetchLoginUser({
+        email: dataForm.email,
+        password: dataForm.password
+      }))
+      toast('Listo para chatear', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      })
     } catch (error) {
       // el parametro erro me arroja un strin pero quiero que sea un json o objeto 
       const stringError = JSON.stringify(error)
