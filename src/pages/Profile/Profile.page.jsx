@@ -1,31 +1,49 @@
 import { Link } from 'react-router-dom';
 import './profile.style.css'
-import { useStore } from '../../lib/userStorage';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../lib/firebase';
 const Profile = () => {
+  const [user, setUser] = useState(null);
 
-  const { currentUser } = useStore()
+  const { id } = useParams()
 
-  console.log(currentUser)
+
+  useEffect(() => {
+    if (id) return
+    async () => {
+      const userRef = doc(db, "users", id)
+      const docSnap = await getDoc(userRef)
+      if (docSnap.exists()) {
+        setUser(docSnap.data())
+      }
+    }
+
+  }, [id])
+
+
 
   return (
     <div className='profile'>
       <div className='profile__header'>
-        <img className='profile__image-header' src='https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
+        <img className='profile__image-header' src={user?.photoURL} />
         <div className='profile__content-image-avatar'>
-          <img className='profile__image-avatar' src='https://images.pexels.com/photos/2048434/pexels-photo-2048434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
+          <img className='profile__image-avatar' src={user?.photoURL} />
         </div>
       </div>
 
       <div className='profile__identify'>
-        <p className='profile__username'>Username</p>
-        <span className='profile__state'>Conectados</span>
+        <p className='profile__username'>{user?.username}</p>
+        <span className='profile__state'></span>
       </div>
       <ul className='profile__list-informations'>
-        <li className='profile__item-information'>Nombre de usuario</li>
-        <li className='profile__item-information'>Correo de usuario</li>
+        <li className='profile__item-information'>{user?.username}</li>
+        <li className='profile__item-information'>{user?.email}</li>
       </ul>
       <div className='profile__connections'>
-        <h2 className='profile__subtitle'>conexiones de user 1</h2>
+        <h2 className='profile__subtitle'>Conexiones del usuario</h2>
         <div>
           <span className='profile__visible-connections'>Conexiones visbles</span>
           <span className='profile__connections-total'>109 conexiones</span>
