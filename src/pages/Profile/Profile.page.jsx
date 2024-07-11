@@ -86,15 +86,17 @@ const Profile = () => {
           </li>
         </ul>
       </div>
-      <button className='button profile__button-delete'>
-        <p className='profile__button-delete-text'>
-          Eliminar cuenta
-        </p>
+      <div className='profile__content-buttons'>
+        <button className='button profile__button-delete'>
+          <p className='profile__button-delete-text'>
+            Eliminar cuenta
+          </p>
+          <span className='icon icon--delete'>
+            <FontAwesomeIcon icon={faTrashCan} />
+          </span>
+        </button>
+      </div>
 
-        <span className='icon icon--delete'>
-          <FontAwesomeIcon icon={faTrashCan} />
-        </span>
-      </button>
     </div>
   );
 }
