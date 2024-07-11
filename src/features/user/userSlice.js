@@ -6,6 +6,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { collection } from 'firebase/firestore';
 import { addDoc } from 'firebase/firestore';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import uploadFile from "../../lib/uploadFile";
 
 const initialState = {
   user: null,
@@ -36,9 +37,12 @@ export const fetchRegisterUser = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const res = await createUserWithEmailAndPassword(auth, data.email, data.password)
-
+      const photoURL = await uploadFile(data.photo, `images/profiles/${res.user.uid}/photos/profile_pictures`)
       await addDoc(collection(db, "users"), {
-        data
+        ...data,
+        blocked: [],
+        photoURL,
+        id: res.user.uid
       })
       await setDoc(doc(db, 'userChats', res.user.uid), {
         chats: []
