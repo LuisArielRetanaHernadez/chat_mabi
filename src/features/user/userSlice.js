@@ -10,6 +10,7 @@ import uploadFile from "../../lib/uploadFile";
 
 const initialState = {
   user: null,
+  isAuth: false,
   isLoading: true
 };
 
@@ -85,9 +86,11 @@ const userSlice = createSlice({
     })
     builder.addCase(fetchLoginUser.fulfilled, (state, action) => {
       state.user = action.payload;
+      state.isAuth = true;
       state.isLoading = false;
     })
     builder.addCase(fetchLoginUser.rejected, state => {
+      state.isAuth = false
       state.isLoading = false;
     })
     builder.addCase(fetchLogoutUser.pending, state => {
@@ -95,6 +98,7 @@ const userSlice = createSlice({
     })
     builder.addCase(fetchLogoutUser.fulfilled, (state, action) => {
       state.user = action.payload;
+      state.isAuth = false;
       state.isLoading = false;
     })
     builder.addCase(fetchLogoutUser.rejected, state => {
