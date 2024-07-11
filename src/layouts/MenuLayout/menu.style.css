@@ -29,6 +29,7 @@
 
 .menu__link {
   padding: 2px;
+  text-decoration: none;
   cursor: pointer;
   display: inline-block;
 }

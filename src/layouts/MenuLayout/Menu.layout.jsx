@@ -32,9 +32,9 @@ const MenuLayout = () => {
     <section className="page">
       <div className="menu">
         <nav className="menu__nav">
-          <span className="menu__logo">
+          <Link to='/' className="menu__logo menu__link">
             <Logo />
-          </span>
+          </Link>
           <ul className="menu__list">
             <li className="menu__item">
               <Link to={`profile/${'jh'}`} className="menu__link menu__profile-content-photo">
