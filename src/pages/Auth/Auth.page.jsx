@@ -2,15 +2,11 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import './auth.style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useEffect, useRef, useState } from 'react'
-import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../../lib/firebase'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { setDoc } from 'firebase/firestore'
+import { getDoc } from 'firebase/firestore'
 import { doc } from 'firebase/firestore'
-import uploadFile from '../../lib/uploadFile'
-import { useStore } from '../../lib/userStorage'
 
 import { fetchLoginUser, fetchRegisterUser } from '../../features/user/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
@@ -137,19 +133,25 @@ const Auth = () => {
   }
 
   useEffect(() => {
-    const unSub = auth.onAuthStateChanged(user => {
+    const unSub = auth.onAuthStateChanged(async user => {
       if (user) {
         console.log(user)
         // traer los datos del usuario
         console.log('user', user)
         // traer los datos del usuario
-        fetchCurrentUser(user.uid)
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+        const data = docSnap.data()
+        dispatch(fetchLoginUser({
+          email: data.email,
+          password: data.password
+        }))
       }
     })
     return () => {
       unSub()
     }
-  }, [fetchCurrentUser])
+  }, [])
 
 
 
