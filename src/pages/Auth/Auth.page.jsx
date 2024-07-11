@@ -35,7 +35,7 @@ const Auth = () => {
 
   const dispatch = useDispatch()
 
-  const { user } = useSelector(state => state.user)
+  const { isAuth } = useSelector(state => state.user)
 
   useEffect(() => {
     if (loginRef.current === null || registerRef.current === null) return
@@ -158,12 +158,12 @@ const Auth = () => {
 
 
   useEffect(() => {
-    console.log(user)
+    console.log(isAuth)
     // redireccionar si el usuario esta logeado
-    if (user !== null) {
+    if (isAuth) {
       navigate('/')
     }
-  }, [user])
+  }, [isAuth])
 
   return (
     <section className="auth">
