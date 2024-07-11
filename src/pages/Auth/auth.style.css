@@ -142,7 +142,7 @@
 /* -----> buttton next */
 
 .auth__button-next::before {
-  content: "Registrar";
+  content: "Login";
   padding: 5px 8px;
   border-radius: 15px;
   font-size: 15px;
@@ -172,6 +172,7 @@
 }
 
 .auth__button-next--register::before {
+  content: "Register";
   right: auto;
   left: 115%;
 }
