@@ -11,6 +11,8 @@ import Auth from "./pages/Auth/Auth.page";
 import Chat from "./pages/Chat/Chat.page";
 import Profile from "./pages/Profile/Profile.page";
 
+import { store } from "./store";
+
 const routers = createBrowserRouter([
   {
     path: "/",
