@@ -154,3 +154,18 @@
   font-weight: 500;
   font-style: oblique;
 }
+
+.profile__button-delete {
+  padding: 15px 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  background-color: #ff0000;
+  transition: all 0.2s;
+}
+
+.profile__button-delete:hover {
+  background-color: #b80000;
+}

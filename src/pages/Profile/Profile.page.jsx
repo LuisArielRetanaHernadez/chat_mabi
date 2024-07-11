@@ -84,9 +84,7 @@ const Profile = () => {
           </li>
         </ul>
       </div>
-      <div className='profile__content-button-delete'>
-        <button className='button profile__button-delete'>Elimar cuenta</button>
-      </div>
+      <button className='button profile__button-delete'>Eliminar cuenta</button>
     </div>
   );
 }
