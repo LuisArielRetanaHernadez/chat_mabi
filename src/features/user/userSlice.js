@@ -8,7 +8,7 @@ const initialState = {
   isLoading: true
 };
 
-const fetchLoginUser = createAsyncThunk(
+export const fetchLoginUser = createAsyncThunk(
   "user/fetchLoginUser",
   async (uid) => {
     const docRef = doc(db, "users", uid);
