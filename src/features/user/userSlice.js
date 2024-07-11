@@ -1,8 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { doc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import { getDoc } from 'firebase/firestore';
 import { auth, db } from "../../lib/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { collection } from 'firebase/firestore';
+import { addDoc } from 'firebase/firestore';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const initialState = {
   user: null,
@@ -27,6 +30,27 @@ export const fetchLoginUser = createAsyncThunk(
 
   }
 );
+
+export const fetchRegisterUser = createAsyncThunk(
+  "user/fetchRegisterUser",
+  async (data, thunkAPI) => {
+    try {
+      const res = await createUserWithEmailAndPassword(auth, data.email, data.password)
+
+      await addDoc(collection(db, "users"), {
+        data
+      })
+      await setDoc(doc(db, 'userChats', user.uid), {
+        chats: []
+      })
+      return {
+        data
+      }
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error)
+    }
+  }
+)
 
 export const fetchLogoutUser = createAsyncThunk(
   "user/fetchLogoutUser",
