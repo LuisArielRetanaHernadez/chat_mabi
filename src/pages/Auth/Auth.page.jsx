@@ -12,7 +12,7 @@ import { doc } from 'firebase/firestore'
 import uploadFile from '../../lib/uploadFile'
 import { useStore } from '../../lib/userStorage'
 
-import { fetchLoginUser } from '../../features/user/userSlice'
+import { fetchLoginUser, fetchRegisterUser } from '../../features/user/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { useNavigate } from 'react-router-dom'
@@ -98,24 +98,13 @@ const Auth = () => {
     e.preventDefault()
     if (dataForm.password !== dataForm.passwordConfirm) return toast.error('las contraseñas no coinciden')
     try {
-      const res = await createUserWithEmailAndPassword(auth, dataForm.email, dataForm.password)
-      const user = res.user
-      const urlImageUpload = await uploadFile(imageProfile.file, `images/profiles/${user.uid}/photos/profile_pictures`)
       const dataRegister = {
         ...dataForm,
-        id: user.uid,
-        blocked: [],
-        photoURL: urlImageUpload,
+        photo: imageProfile.file
       }
       delete dataRegister.passwordConfirm
-      await setDoc(doc(db, 'users', user.uid), {
-        ...dataRegister
-      })
+      dispatch(fetchRegisterUser(dataRegister))
 
-      await setDoc(doc(db, 'userChats', user.uid), {
-        chats: []
-      })
-      fetchCurrentUser(user.uid)
       toast.success('usuario creado correctamente', {
         position: "top-center",
         autoClose: 5000,
