@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { doc } from 'firebase/firestore';
 import { getDoc } from 'firebase/firestore';
 import { auth, db } from "../../lib/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const initialState = {
   user: null,
@@ -10,15 +11,20 @@ const initialState = {
 
 export const fetchLoginUser = createAsyncThunk(
   "user/fetchLoginUser",
-  async (uid) => {
-    const docRef = doc(db, "users", uid);
-    const docSnap = await getDoc(docRef);
+  async (data, thunkAPI) => {
+    try {
+      const res = await signInWithEmailAndPassword(auth, data.email, data.password)
 
-    if (docSnap.exists()) {
-      return docSnap.data();
-    } else {
-      return null;
+      const docRef = doc(db, "users", res.user.uid);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        return docSnap.data();
+      }
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error)
     }
+
   }
 );
 
