@@ -180,3 +180,19 @@
 .auth__button-next--register:hover {
   padding-left: 15px;
 }
+
+/* button password show and hidden */
+
+.auth__form-field--password {
+  display: flex;
+}
+
+.auth__form-field--password .auth__form-input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.auth__button-password {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
