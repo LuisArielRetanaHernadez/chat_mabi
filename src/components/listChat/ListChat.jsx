@@ -81,9 +81,11 @@ const ListChat = () => {
   const searchUsers = async (user) => {
     try {
       // get user data
+      console.log('user ', user)
       const userRef = collection(db, "users");
       const q = query(userRef, where("username", ">=", user));
       const querySnapShot = await getDocs(q);
+      console.log('querySnapShot ', querySnapShot)
       if (!querySnapShot.empty) {
         // obtener todos los usuarios encontrados para set el estado chats
         const chats = querySnapShot.docs.map((doc) => doc.data());
@@ -94,6 +96,10 @@ const ListChat = () => {
     }
 
   }
+
+  useEffect(() => {
+    console.log('chats ', chats)
+  }, [chats])
   return (
     // <div className="chatList">
     //   <div className="search">
