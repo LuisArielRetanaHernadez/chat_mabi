@@ -26,6 +26,7 @@ const Auth = () => {
     url: ''
   })
   const [showPassword, setShowPassword] = useState(false)
+  const [showPasswordRegister, setShowPasswordRegister] = useState(false)
 
   const loginRef = useRef(null)
   const registerRef = useRef(null)
@@ -202,11 +203,22 @@ const Auth = () => {
             <div className="auth__form-field">
               <input className="auth__form-input" type="email" name="email" placeholder='email' onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
             </div>
-            <div className="auth__form-field">
-              <input className="auth__form-input" type="password" name="password" placeholder='pasword' onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
+            <div className="auth__form-field auth__form-field--password">
+              <input className="auth__form-input" type={showPasswordRegister ? 'text' : 'password'} name="password" placeholder='pasword' onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
+              <span className="button auth__button-password" onClick={() => setShowPasswordRegister(prev => !prev)}>
+                {
+                  showPasswordRegister ? <FontAwesomeIcon icon={faEye} /> : <FontAwesomeIcon icon={faEyeSlash} />
+                }
+              </span>
             </div>
-            <div className="auth__form-field">
-              <input className="auth__form-input" type="password" name="passwordConfirm" placeholder='pasword confirm' onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
+            <div className="auth__form-field auth__form-field--password">
+              <input className="auth__form-input" type={showPasswordRegister ? 'text' : 'password'} name="passwordConfirm" placeholder='pasword confirm' onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
+              <span className="button auth__button-password" onClick={() => setShowPasswordRegister(prev => !prev)}>
+                {
+                  showPasswordRegister ? <FontAwesomeIcon icon={faEye} /> : <FontAwesomeIcon icon={faEyeSlash} />
+                }
+              </span>
+
             </div>
             <button className="button auth__button-send">Unirse</button>
           </form>
