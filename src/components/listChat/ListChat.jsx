@@ -2,20 +2,17 @@
 
 import "./listChat.style.css"
 import { useEffect, useState } from 'react'
-import { useStore } from "../../lib/userStorage"
 import { collection, doc, getDoc, getDocs, onSnapshot, query, updateDoc } from "firebase/firestore"
 import { db } from "../../lib/firebase"
-import { useChatStore } from "../../lib/useChatStore"
 import { Link } from "react-router-dom"
 import Search from "../search/Search"
 import { where } from 'firebase/firestore'
+import { useSelector } from "react-redux"
 
 const ListChat = () => {
   const [chats, setChats] = useState([])
 
-  const { changeChat } = useChatStore()
-
-  const { currentUser } = useStore()
+  const currentUser = useSelector(state => state.user.user)
 
   useEffect(() => {
 
@@ -72,7 +69,6 @@ const ListChat = () => {
       await updateDoc(userChatsRef, {
         chats: userChats,
       });
-      changeChat(chat.chatId, chat.user);
     } catch (err) {
       console.log(err);
     }
@@ -129,8 +125,8 @@ const ListChat = () => {
       <ul className="list-chat__list">
         {chats?.length ? (
           chats.map((chat) => (
-            <li className="list-chat__item" key={chat.chatId}>
-              <Link to={`/chat/${chat?.chatId}`} className="list-chat__user" onClick={() => handleSelect(chat)}>
+            <li className="list-chat__item" key={chat.id}>
+              <Link to={`/chat/${chat.id}`} className="list-chat__user" onClick={() => handleSelect(chat)}>
                 <figure className="list-chat__content-image">
                   <img className="list-chat__image" src={chat.photoURL} alt="avatar" />
                 </figure>
