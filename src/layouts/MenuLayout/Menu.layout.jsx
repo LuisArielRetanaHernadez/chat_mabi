@@ -5,7 +5,6 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import './menu.style.css'
 import Logo from "../../components/logo/Logo";
 
-import { auth } from "../../lib/firebase";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchLogoutUser } from "../../features/user/userSlice";
@@ -19,8 +18,7 @@ const MenuLayout = () => {
   const { isAuth, user } = useSelector(state => state.user)
 
   const logout = async () => {
-    await dispatch(fetchLogoutUser().unwrap())
-    auth.signOut()
+    await dispatch(fetchLogoutUser())
   }
 
   useEffect(() => {
