@@ -14,8 +14,7 @@ const Profile = () => {
 
 
   useEffect(() => {
-    if (id) return
-    async () => {
+    const getUser = async () => {
       const userRef = doc(db, "users", id)
       const docSnap = await getDoc(userRef)
       if (docSnap.exists()) {
@@ -23,8 +22,9 @@ const Profile = () => {
       }
     }
 
-  }, [id])
+    getUser()
 
+  }, [id])
 
 
   return (
