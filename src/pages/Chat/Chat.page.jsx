@@ -4,21 +4,19 @@ import './chat.style.css'
 import { faFaceLaughWink, faFileImport, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import Message from '../../components/message/Message'
 
-import { useStore } from '../../lib/userStorage'
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 const Chat = () => {
+  const { id } = useParams()
 
-  const { currentUser } = useStore()
+  const user = useSelector(store => store.user.user)
 
   const navigate = useNavigate()
 
+  if (!user) {
+    navigate('/login')
+  }
 
-  useEffect(() => {
-    if (currentUser === null) {
-      navigate('/')
-    }
-  }, [currentUser])
   return (
     <div className="chat">
       <div className="chat__messages">
