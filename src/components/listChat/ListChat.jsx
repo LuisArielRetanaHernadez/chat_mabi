@@ -96,10 +96,6 @@ const ListChat = () => {
     }
 
   }
-
-  useEffect(() => {
-    console.log('chats ', chats)
-  }, [chats])
   return (
     // <div className="chatList">
     //   <div className="search">
