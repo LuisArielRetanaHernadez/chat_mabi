@@ -1,4 +1,4 @@
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faArrowRight, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import './auth.style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useEffect, useRef, useState } from 'react'
@@ -25,7 +25,7 @@ const Auth = () => {
     file: '',
     url: ''
   })
-
+  const [showPassword, setShowPassword] = useState(false)
 
   const loginRef = useRef(null)
   const registerRef = useRef(null)
@@ -174,8 +174,13 @@ const Auth = () => {
             <div className="auth__form-field">
               <input className="auth__form-input" type="email" name="email" placeholder='email' onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
             </div>
-            <div className="auth__form-field">
+            <div className="auth__form-field auth__form-field--password">
               <input className="auth__form-input" type="password" name="password" placeholder='pasword' onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
+              <span className='button auth__button-password' onClick={() => setShowPassword(prev => !prev)}>
+                {
+                  showPassword ? <FontAwesomeIcon icon={faEye} /> : <FontAwesomeIcon icon={faEyeSlash} />
+                }
+              </span>
             </div>
             <button className="button auth__button-send">Entrar</button>
           </form>
