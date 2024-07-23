@@ -175,7 +175,7 @@ const Auth = () => {
               <input className="auth__form-input" type="email" name="email" placeholder='email' onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
             </div>
             <div className="auth__form-field auth__form-field--password">
-              <input className="auth__form-input" type="password" name="password" placeholder='pasword' onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
+              <input className="auth__form-input" type={showPassword ? 'text' : 'password'} name="password" placeholder='pasword' onChange={e => setDataForm(prev => ({ ...prev, [e.target.name]: e.target.value }))} />
               <span className='button auth__button-password' onClick={() => setShowPassword(prev => !prev)}>
                 {
                   showPassword ? <FontAwesomeIcon icon={faEye} /> : <FontAwesomeIcon icon={faEyeSlash} />
